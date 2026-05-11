@@ -11,21 +11,25 @@ export default function Nav() {
     return () => window.removeEventListener('scroll', handler)
   }, [])
 
-  const closeNav = () => setOpen(false)
+  const close = () => setOpen(false)
 
   return (
     <nav className={scrolled ? 'scrolled' : ''}>
       <div className="container">
-        <a href="#" className="nav-logo"><span>v</span>iable</a>
+        <a href="#" className="nav-logo">viable</a>
         <ul className={`nav-links${open ? ' open' : ''}`}>
-          <li><a href="#services" onClick={closeNav}>Services</a></li>
-          <li><a href="#portfolio" onClick={closeNav}>Work</a></li>
-          <li><a href="#pricing" onClick={closeNav}>Pricing</a></li>
-          <li><a href="#about" onClick={closeNav}>About</a></li>
-          <li><a href="#contact" className="nav-cta" onClick={closeNav}>Get in Touch</a></li>
+          <li><a href="#services" onClick={close}>Services</a></li>
+          <li><a href="#team" onClick={close}>Team</a></li>
+          <li><a href="#work" onClick={close}>Work</a></li>
+          <li><a href="#pricing" onClick={close}>Pricing</a></li>
+          <li><a href="#process" onClick={close}>Process</a></li>
+          <li className="nav-contact-mobile"><a href="#contact" onClick={close}>Get in Touch</a></li>
         </ul>
+        <a href="#contact" className="btn btn-primary nav-action" onClick={close}>
+          Get in Touch <span className="arrow">→</span>
+        </a>
         <button className="nav-toggle" onClick={() => setOpen(o => !o)} aria-label="Toggle menu">
-          <span></span><span></span><span></span>
+          <span /><span /><span />
         </button>
       </div>
     </nav>

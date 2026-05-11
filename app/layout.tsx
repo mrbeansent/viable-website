@@ -1,29 +1,39 @@
 import type { Metadata } from 'next'
-import { Syne, DM_Sans } from 'next/font/google'
+import { Fraunces, Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 
-const syne = Syne({
+const fraunces = Fraunces({
   subsets: ['latin'],
-  variable: '--font-syne',
-  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-fraunces',
+  weight: 'variable',
+  style: ['normal', 'italic'],
+  axes: ['opsz'],
 })
 
-const dmSans = DM_Sans({
+const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-dm-sans',
-  weight: ['300', '400', '500', '700'],
+  variable: '--font-inter',
+  weight: ['300', '400', '500', '600', '700'],
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
+  weight: ['400', '500'],
 })
 
 export const metadata: Metadata = {
-  title: 'Viable — Web Development & Marketing Agency',
+  title: 'Viable — A boutique digital agency that builds websites that grow businesses.',
   description:
-    'Viable is a boutique web development and marketing agency helping small businesses and startups build powerful digital presences.',
+    'Viable is a boutique digital agency for small businesses and startups. Web development, marketing, design, and AI automation — done by specialists, not account managers.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${syne.variable} ${dmSans.variable}`}>{children}</body>
+      <body className={`${fraunces.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
+        {children}
+      </body>
     </html>
   )
 }
