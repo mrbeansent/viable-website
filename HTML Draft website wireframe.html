@@ -1,0 +1,1590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Viable — A boutique digital agency that builds websites that grow businesses.</title>
+<meta name="description" content="Viable is a two-person digital agency for small businesses and startups. Web development, marketing, design, and AI automation — done by specialists, not account managers." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #fafaf7;
+    --bg-tint: #f3f5f1;
+    --ink: #0a0f0d;
+    --ink-soft: #2a312e;
+    --muted: #6b7470;
+    --muted-2: #9aa19d;
+    --line: #e6e8e3;
+    --line-soft: #eef0eb;
+    --mint: #b8e8d8;
+    --mint-deep: #5fc9a8;
+    --mint-ink: #1f5e4a;
+    --mint-glow: #d4f0e4;
+    --accent: #14b88a;
+    --dark: #0c1411;
+    --dark-2: #131c18;
+    --dark-line: #1f2924;
+    --shadow-card: 0 1px 0 rgba(10,15,13,0.04), 0 8px 24px -12px rgba(10,15,13,0.08);
+    --shadow-card-hover: 0 1px 0 rgba(10,15,13,0.06), 0 24px 48px -20px rgba(10,15,13,0.16);
+    --radius: 14px;
+    --radius-sm: 10px;
+    --radius-lg: 22px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.55;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* ---------- Wireframe ribbon ---------- */
+  .wire-ribbon {
+    background: var(--dark);
+    color: #6f7a75;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--dark-line);
+  }
+  .wire-ribbon .wrap {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .wire-ribbon strong { color: var(--mint); font-weight: 500; }
+  .wire-ribbon span { opacity: 0.85; }
+  .wire-ribbon span::before { content: '— '; opacity: 0.4; }
+
+  /* ---------- Layout shell ---------- */
+  .wrap {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- Nav ---------- */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250, 250, 247, 0.78);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .nav .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: baseline;
+  }
+  .logo::after {
+    content: '.';
+    color: var(--mint-deep);
+    font-size: 28px;
+    line-height: 0;
+  }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 450;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--mint-deep); }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 999px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-family: inherit;
+  }
+  .btn-primary {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .btn-primary:hover {
+    background: var(--mint-ink);
+    transform: translateY(-1px);
+  }
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink-soft);
+    border: 1px solid var(--line);
+  }
+  .btn-ghost:hover {
+    border-color: var(--ink);
+    color: var(--ink);
+  }
+  .btn .arrow {
+    display: inline-block;
+    transition: transform 0.25s ease;
+  }
+  .btn:hover .arrow { transform: translateX(3px); }
+
+  @media (max-width: 760px) {
+    .nav-links { display: none; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    padding: 96px 0 72px;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -120px;
+    right: -180px;
+    width: 720px;
+    height: 720px;
+    background: radial-gradient(circle at 30% 40%, var(--mint) 0%, var(--mint-glow) 35%, transparent 70%);
+    filter: blur(20px);
+    opacity: 0.85;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -200px;
+    left: -240px;
+    width: 560px;
+    height: 560px;
+    background: radial-gradient(circle, var(--mint-glow) 0%, transparent 65%);
+    filter: blur(30px);
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero .wrap { position: relative; z-index: 1; }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mint-ink);
+    margin-bottom: 26px;
+  }
+  .eyebrow .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--mint-deep);
+    box-shadow: 0 0 0 4px rgba(95, 201, 168, 0.18);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(95, 201, 168, 0.18); }
+    50% { box-shadow: 0 0 0 8px rgba(95, 201, 168, 0.05); }
+  }
+
+  h1.display {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(52px, 8vw, 104px);
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+    font-weight: 350;
+    color: var(--ink);
+    margin-bottom: 32px;
+    max-width: 14ch;
+  }
+  h1.display em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--mint-deep);
+    font-variation-settings: "opsz" 144;
+  }
+
+  .lede {
+    max-width: 52ch;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-bottom: 40px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 88px;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+  }
+  .stat .num {
+    font-family: 'Fraunces', serif;
+    font-size: 56px;
+    font-weight: 350;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: var(--ink);
+    display: block;
+    margin-bottom: 10px;
+  }
+  .stat .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  @media (max-width: 760px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .stat .num { font-size: 42px; }
+    .hero { padding: 56px 0 48px; }
+    .hero-actions { margin-bottom: 56px; }
+  }
+
+  /* ---------- Section header ---------- */
+  .section-head {
+    margin-bottom: 56px;
+    max-width: 920px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: end;
+  }
+  .section-head .left { max-width: 18ch; }
+  .section-head h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1.04;
+    letter-spacing: -0.025em;
+    font-weight: 350;
+    color: var(--ink);
+  }
+  .section-head h2 em {
+    font-style: italic;
+    color: var(--mint-deep);
+  }
+  .section-head .right {
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.6;
+    padding-bottom: 6px;
+  }
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mint-ink);
+    margin-bottom: 20px;
+  }
+  .section-eyebrow .plus { color: var(--mint-deep); font-size: 14px; }
+  @media (max-width: 760px) {
+    .section-head {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+  /* ---------- Services ---------- */
+  .services {
+    padding: 96px 0 24px;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .service-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 32px 32px 28px;
+    position: relative;
+    transition: all 0.35s ease;
+    overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 0%), rgba(95, 201, 168, 0.08), transparent 40%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    pointer-events: none;
+  }
+  .service-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-card-hover); border-color: #d8dcd4; }
+  .service-card:hover::before { opacity: 1; }
+
+  .service-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted-2);
+    margin-bottom: 36px;
+  }
+  .service-meta .num { color: var(--mint-ink); }
+
+  .service-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--mint-glow), var(--mint));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    color: var(--mint-ink);
+  }
+
+  .service-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+    color: var(--ink);
+  }
+  .service-card .led-by {
+    font-size: 12.5px;
+    color: var(--muted);
+    margin-bottom: 18px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.04em;
+  }
+  .service-card .led-by b { color: var(--ink-soft); font-weight: 500; }
+
+  .service-desc {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-bottom: 22px;
+    padding-bottom: 22px;
+    border-bottom: 1px dashed var(--line);
+  }
+
+  .service-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+  .service-list li {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.5;
+  }
+  .service-list li::before {
+    content: '';
+    flex-shrink: 0;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--mint-deep);
+    margin-top: 8px;
+  }
+  @media (max-width: 760px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .services { padding: 64px 0 12px; }
+  }
+
+  /* ---------- Team ---------- */
+  .team {
+    padding: 120px 0;
+  }
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .team-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    transition: all 0.3s;
+  }
+  .team-card:hover { box-shadow: var(--shadow-card-hover); transform: translateY(-2px); }
+
+  .team-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+    gap: 16px;
+  }
+  .avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--mint-glow), var(--mint-deep));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--mint-ink);
+    flex-shrink: 0;
+  }
+  .avatar.b2 { background: linear-gradient(135deg, #f0e6d8, #d4c4a8); color: #5a4a30; }
+  .badge-cofounder {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mint-ink);
+    background: var(--mint-glow);
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+
+  .team-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .team-roles {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mint-ink);
+    margin-bottom: 22px;
+  }
+  .team-bio {
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin-bottom: 22px;
+  }
+  .tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .tag {
+    font-size: 12px;
+    color: var(--ink-soft);
+    background: var(--bg-tint);
+    padding: 6px 11px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    font-weight: 450;
+  }
+  @media (max-width: 760px) {
+    .team-grid { grid-template-columns: 1fr; }
+    .team { padding: 64px 0; }
+  }
+
+  /* ---------- Work ---------- */
+  .work {
+    padding: 24px 0 120px;
+  }
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .work-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.35s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+  }
+  .work-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
+    border-color: var(--mint);
+  }
+  .work-thumb {
+    aspect-ratio: 4 / 3;
+    background: var(--bg-tint);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .work-thumb svg {
+    width: 50%;
+    height: 50%;
+    color: var(--muted-2);
+    transition: all 0.4s ease;
+  }
+  .work-card:hover .work-thumb svg { color: var(--mint-deep); transform: scale(1.06); }
+  .work-thumb::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 60%, rgba(95, 201, 168, 0.08) 100%);
+  }
+
+  .work-meta {
+    padding: 18px 20px 20px;
+  }
+  .work-tags {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mint-ink);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .work-card h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 21px;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .work-desc {
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin-bottom: 12px;
+  }
+  .work-by {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+  .work-by b { color: var(--ink-soft); font-weight: 500; }
+  @media (max-width: 900px) {
+    .work-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .work-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Process (dark) ---------- */
+  .process {
+    background: var(--dark);
+    color: #e8ece9;
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .process::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(95, 201, 168, 0.12), transparent 70%);
+    filter: blur(40px);
+    pointer-events: none;
+  }
+  .process .wrap { position: relative; z-index: 1; }
+  .process .section-eyebrow { color: var(--mint-deep); }
+  .process h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1.04;
+    letter-spacing: -0.025em;
+    font-weight: 350;
+    color: #f4f7f5;
+  }
+  .process h2 em { font-style: italic; color: var(--mint-deep); }
+  .process .section-head .right { color: #8a948f; }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .step {
+    background: var(--dark-2);
+    border: 1px solid var(--dark-line);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    transition: all 0.3s;
+    position: relative;
+  }
+  .step:hover {
+    border-color: rgba(95, 201, 168, 0.4);
+    transform: translateY(-3px);
+  }
+  .step-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mint-deep);
+    margin-bottom: 32px;
+    font-weight: 500;
+  }
+  .step-title {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: #f4f7f5;
+    margin-bottom: 12px;
+  }
+  .step-desc {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #9aa39f;
+  }
+  @media (max-width: 900px) {
+    .steps { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .steps { grid-template-columns: 1fr; }
+    .process { padding: 64px 0; }
+  }
+
+  /* ---------- Pricing ---------- */
+  .pricing {
+    padding: 120px 0;
+  }
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    align-items: stretch;
+  }
+  .price-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s;
+  }
+  .price-card:hover { box-shadow: var(--shadow-card-hover); transform: translateY(-2px); }
+  .price-card.featured {
+    background: var(--dark);
+    color: #e8ece9;
+    border-color: var(--dark);
+    transform: scale(1.02);
+    position: relative;
+    overflow: hidden;
+  }
+  .price-card.featured::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle, rgba(95, 201, 168, 0.18), transparent 70%);
+    filter: blur(20px);
+    pointer-events: none;
+  }
+  .price-card.featured > * { position: relative; z-index: 1; }
+  .price-card.featured:hover { transform: scale(1.02) translateY(-2px); }
+
+  .price-tier {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .price-card.featured .price-tier { color: var(--mint-deep); }
+
+  .price-tag-badge {
+    background: var(--mint-deep);
+    color: var(--dark);
+    padding: 4px 9px;
+    border-radius: 999px;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+  }
+
+  .price-name {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+  }
+  .price-card.featured .price-name { color: #f4f7f5; }
+
+  .price-pitch {
+    font-size: 13.5px;
+    color: var(--muted);
+    margin-bottom: 24px;
+    line-height: 1.5;
+    min-height: 38px;
+  }
+  .price-card.featured .price-pitch { color: #8a948f; }
+
+  .price-amount {
+    font-family: 'Fraunces', serif;
+    font-size: 56px;
+    font-weight: 350;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 4px;
+    color: var(--ink);
+  }
+  .price-card.featured .price-amount { color: #f4f7f5; }
+  .price-amount sup {
+    font-size: 22px;
+    font-weight: 400;
+    vertical-align: top;
+    margin-right: 2px;
+    color: var(--muted-2);
+  }
+  .price-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .price-card.featured .price-meta {
+    color: var(--mint-deep);
+    border-bottom-color: var(--dark-line);
+  }
+
+  .price-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    margin-bottom: 32px;
+    flex-grow: 1;
+  }
+  .price-features li {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.4;
+  }
+  .price-card.featured .price-features li { color: #c5ccc8; }
+  .price-features li svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: var(--mint-deep);
+  }
+
+  .price-cta {
+    display: block;
+    text-align: center;
+    padding: 14px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.25s;
+    background: var(--bg-tint);
+    color: var(--ink);
+    border: 1px solid var(--line);
+  }
+  .price-cta:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .price-card.featured .price-cta {
+    background: var(--mint-deep);
+    color: var(--dark);
+    border-color: var(--mint-deep);
+  }
+  .price-card.featured .price-cta:hover { background: var(--mint); }
+
+  @media (max-width: 900px) {
+    .pricing-grid { grid-template-columns: 1fr; }
+    .price-card.featured { transform: none; }
+    .price-card.featured:hover { transform: translateY(-2px); }
+    .pricing { padding: 64px 0; }
+  }
+
+  /* ---------- Contact ---------- */
+  .contact {
+    padding: 24px 0 120px;
+    position: relative;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .contact-left h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(40px, 5.5vw, 64px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    font-weight: 350;
+    margin-bottom: 24px;
+    color: var(--ink);
+  }
+  .contact-left h2 em { font-style: italic; color: var(--mint-deep); }
+  .contact-left p {
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 42ch;
+  }
+
+  .info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .info-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .info-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--mint-glow);
+    color: var(--mint-ink);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .info-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+  .info-value {
+    color: var(--ink-soft);
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  .info-value a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    transition: border-color 0.2s;
+  }
+  .info-value a:hover { border-color: var(--mint-deep); }
+  .info-sub {
+    font-size: 12.5px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  .form-card {
+    background: linear-gradient(155deg, var(--mint-glow) 0%, #e8f4ec 100%);
+    border-radius: var(--radius-lg);
+    padding: 36px;
+    border: 1px solid rgba(184, 232, 216, 0.6);
+    position: relative;
+    overflow: hidden;
+  }
+  .form-card::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 240px;
+    height: 240px;
+    background: radial-gradient(circle, rgba(184, 232, 216, 0.6), transparent 70%);
+    filter: blur(20px);
+    pointer-events: none;
+  }
+  .form-card > * { position: relative; z-index: 1; }
+
+  .field { margin-bottom: 18px; }
+  .field label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mint-ink);
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  .field input,
+  .field select,
+  .field textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid rgba(31, 94, 74, 0.12);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.85);
+    font-family: inherit;
+    font-size: 14.5px;
+    color: var(--ink);
+    transition: all 0.2s;
+    font-weight: 400;
+  }
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    outline: none;
+    border-color: var(--mint-deep);
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(95, 201, 168, 0.12);
+  }
+  .field textarea { resize: vertical; min-height: 100px; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .form-card .btn-primary { width: 100%; justify-content: center; padding: 14px; margin-top: 8px; }
+
+  @media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+    .contact { padding: 12px 0 64px; }
+  }
+  @media (max-width: 500px) {
+    .field-row { grid-template-columns: 1fr; }
+    .form-card { padding: 24px; }
+  }
+
+  /* ---------- Footer ---------- */
+  .footer {
+    border-top: 1px solid var(--line);
+    padding: 48px 0;
+    background: var(--bg-tint);
+  }
+  .footer .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+  .footer-meta {
+    display: flex;
+    gap: 26px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .footer-meta a { color: var(--ink-soft); text-decoration: none; }
+  .footer-meta a:hover { color: var(--mint-deep); }
+
+  /* ---------- Reveal animation ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  ::selection { background: var(--mint); color: var(--mint-ink); }
+</style>
+</head>
+<body>
+
+<!-- Wireframe ribbon -->
+<div class="wire-ribbon">
+  <div class="wrap">
+    <strong>WIREFRAME V1</strong>
+    <span>Viable agency</span>
+    <span>Layout reference</span>
+    <span>viable.works.com</span>
+    <span>Brand color #5FC9A8</span>
+    <span>Fraunces + Inter</span>
+  </div>
+</div>
+
+<!-- Nav -->
+<header class="nav">
+  <div class="wrap">
+    <a href="#" class="logo">viable</a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#process">Process</a></li>
+      </ul>
+    </nav>
+    <a href="#contact" class="btn btn-primary">Get in Touch <span class="arrow">→</span></a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">
+      <span class="dot"></span>
+      Web Development · Marketing · Design · Automation
+    </div>
+    <h1 class="display">We build websites that <em>grow</em> businesses.</h1>
+    <p class="lede">Viable is a boutique digital agency for small businesses and startups who want a powerful online presence — without the big agency price tag. Two specialists, every skill you need.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-primary">Start a Project <span class="arrow">→</span></a>
+      <a href="#work" class="btn btn-ghost">See Our Work</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="num">2</span><span class="label">Dedicated specialists</span></div>
+      <div class="stat"><span class="num">100<span style="font-size: 0.55em; color: var(--mint-deep);">%</span></span><span class="label">Direct communication</span></div>
+      <div class="stat"><span class="num">24<span style="font-size: 0.55em; color: var(--mint-deep);">h</span></span><span class="label">Response time</span></div>
+      <div class="stat"><span class="num">∞</span><span class="label">Passion per pixel</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="left">
+        <div class="section-eyebrow"><span class="plus">+</span> What we do</div>
+        <h2>One team. <em>Every</em> skill you need.</h2>
+      </div>
+      <div class="right">We bring together web development, infrastructure, design, marketing, and automation — the full stack of skills under one roof, so your website doesn't just exist, it performs.</div>
+    </div>
+
+    <div class="services-grid">
+      <article class="service-card" data-track>
+        <div class="service-meta"><span class="num">01 / Build</span><span>Service 01</span></div>
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 12l9 4 9-4"/><path d="M3 17l9 4 9-4"/></svg>
+        </div>
+        <h3>Website Build</h3>
+        <div class="led-by">led by <b>Vincent</b></div>
+        <p class="service-desc">Custom WordPress, Webflow, and WooCommerce sites built to load fast, look sharp, and convert. From discovery and wireframes to launch and post-launch support — full-stack delivery from local staging to production.</p>
+        <ul class="service-list">
+          <li>WordPress · Elementor · ACF · WPForms</li>
+          <li>Webflow CMS &amp; headless Next.js builds</li>
+          <li>WooCommerce e-commerce stores</li>
+          <li>SEO, performance &amp; security hardening</li>
+        </ul>
+      </article>
+
+      <article class="service-card" data-track>
+        <div class="service-meta"><span class="num">02 / Build</span><span>Service 02</span></div>
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 010 18"/><path d="M12 3a14 14 0 000 18"/></svg>
+        </div>
+        <h3>Social Media</h3>
+        <div class="led-by">led by <b>Belle</b></div>
+        <p class="service-desc">Strategy, content design, and full-service management for Instagram, Facebook, TikTok, and LinkedIn. Built around a real audience and brand voice — not vanity metrics.</p>
+        <ul class="service-list">
+          <li>Content calendars &amp; planning</li>
+          <li>On-brand graphics, reels &amp; carousels</li>
+          <li>Community management</li>
+          <li>Performance reporting &amp; growth analysis</li>
+        </ul>
+      </article>
+
+      <article class="service-card" data-track>
+        <div class="service-meta"><span class="num">03 / Grow</span><span>Service 03</span></div>
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+        </div>
+        <h3>Marketing &amp; Brand</h3>
+        <div class="led-by">led by <b>Belle</b></div>
+        <p class="service-desc">Email campaigns, advanced WooCommerce coupon promotions, SEO, and brand identity systems — the full marketing stack to drive traffic and turn it into revenue.</p>
+        <ul class="service-list">
+          <li>Email marketing &amp; automation flows</li>
+          <li>WooCommerce promotional campaigns</li>
+          <li>Brand identity, logo &amp; collateral</li>
+          <li>SEO &amp; content strategy</li>
+        </ul>
+      </article>
+
+      <article class="service-card" data-track>
+        <div class="service-meta"><span class="num">04 / Automate</span><span>Service 04</span></div>
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9h6v6H9z"/><path d="M4 9h2M4 15h2M18 9h2M18 15h2M9 4v2M15 4v2M9 18v2M15 18v2"/></svg>
+        </div>
+        <h3>AI &amp; Automation Setup</h3>
+        <div class="led-by">led by <b>Vincent</b></div>
+        <p class="service-desc">n8n workflows, self-hosted AI lead pipelines, custom GPTs, and CRM automations that replace hours of manual work. Built on real infrastructure — not toy Zapier flows.</p>
+        <ul class="service-list">
+          <li>n8n &amp; multi-agent AI workflows</li>
+          <li>Self-hosted LLM lead-gen pipelines</li>
+          <li>GoHighLevel funnels &amp; CRMs</li>
+          <li>CI/CD &amp; observability for production</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Team -->
+<section class="team" id="team">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="left">
+        <div class="section-eyebrow"><span class="plus">+</span> Who we are</div>
+        <h2>A dedicated team who <em>actually</em> care.</h2>
+      </div>
+      <div class="right">No middlemen. No layers. When you work with Viable, you work directly with the specialists building your project — covering everything from code and infrastructure to design, marketing, and automation. Fast, focused, and genuinely invested, because your growth is our growth.</div>
+    </div>
+
+    <div class="team-grid">
+      <article class="team-card">
+        <div class="team-head">
+          <div class="avatar">B</div>
+          <span class="badge-cofounder">Co-founder</span>
+        </div>
+        <h3>Belle</h3>
+        <div class="team-roles">Design · Marketing · Brand</div>
+        <p class="team-bio">Bachelor of Arts in Applied Linguistics with a specialty in design, social design, and on-brand strategy. Belle has built campaigns and visual systems for clients including eFlexervices, EyeCare Educators, Sunvoy, Advanced Coupons, University of Santo Tomas, and The Fidget Game.</p>
+        <div class="tag-cloud">
+          <span class="tag">Web Design</span>
+          <span class="tag">WooCommerce</span>
+          <span class="tag">Branding</span>
+          <span class="tag">Social Media</span>
+          <span class="tag">Email Marketing</span>
+          <span class="tag">SEO</span>
+          <span class="tag">Canva Pro</span>
+          <span class="tag">Figma</span>
+        </div>
+      </article>
+
+      <article class="team-card">
+        <div class="team-head">
+          <div class="avatar b2">A</div>
+          <span class="badge-cofounder">Co-founder</span>
+        </div>
+        <h3>Vincent Cañas</h3>
+        <div class="team-roles">SRE · DevOps · Web Dev</div>
+        <p class="team-bio">Site Reliability Engineer and Web Developer with 7+ years across FinTech, SaaS, and web hosting — including Kinsta and FluentTech. 99.99% uptime achieved, 500+ sites migrated, and a track record of building infrastructure that ships and stays alive.</p>
+        <div class="tag-cloud">
+          <span class="tag">Next.js</span>
+          <span class="tag">WordPress</span>
+          <span class="tag">Webflow</span>
+          <span class="tag">Kubernetes</span>
+          <span class="tag">n8n</span>
+          <span class="tag">GoHighLevel</span>
+          <span class="tag">AWS</span>
+          <span class="tag">Ollama / AI</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Work -->
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="left">
+        <div class="section-eyebrow"><span class="plus">+</span> Selected work</div>
+        <h2>Projects that <em>prove</em> results.</h2>
+      </div>
+      <div class="right">A snapshot of what we build and the impact it creates — pulled from both founders' portfolios.</div>
+    </div>
+
+    <div class="work-grid">
+      <article class="work-card">
+        <div class="work-thumb">
+          <svg viewBox="0 0 100 80" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="10" y="10" width="80" height="60" rx="4"/><path d="M10 26h80"/><path d="M22 40h36M22 50h26M22 58h44"/></svg>
+        </div>
+        <div class="work-meta">
+          <div class="work-tags">Brand · Marketing</div>
+          <h4>eFlexervices</h4>
+          <p class="work-desc">Full marketing campaign — social graphics, email design, and on-brand collateral built around a fresh identity system.</p>
+          <div class="work-by">By <b>Belle</b></div>
+        </div>
+      </article>
+
+      <article class="work-card">
+        <div class="work-thumb">
+          <svg viewBox="0 0 100 80" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="50" cy="40" r="22"/><circle cx="50" cy="40" r="10"/><path d="M28 20l-6-4M72 20l6-4"/></svg>
+        </div>
+        <div class="work-meta">
+          <div class="work-tags">Brand · Email</div>
+          <h4>EyeCare Educators</h4>
+          <p class="work-desc">Brand identity and email marketing system for a healthcare education platform — calm green palette, clean iconography.</p>
+          <div class="work-by">By <b>Belle</b></div>
+        </div>
+      </article>
+
+      <article class="work-card">
+        <div class="work-thumb">
+          <svg viewBox="0 0 100 80" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="34" y="10" width="32" height="60" rx="5"/><circle cx="50" cy="62" r="2.5"/><path d="M40 20h20M40 26h12"/></svg>
+        </div>
+        <div class="work-meta">
+          <div class="work-tags">Mobile App · UI</div>
+          <h4>Sunvoy</h4>
+          <p class="work-desc">Mobile app UI design, onboarding flows, and an inter-based typography system for a modern fitness platform.</p>
+          <div class="work-by">By <b>Belle</b></div>
+        </div>
+      </article>
+
+      <article class="work-card">
+        <div class="work-thumb">
+          <svg viewBox="0 0 100 80" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="14" y="18" width="48" height="44" rx="3" stroke-dasharray="3 3"/><rect x="40" y="32" width="46" height="32" rx="3"/><path d="M48 42h30M48 50h22"/></svg>
+        </div>
+        <div class="work-meta">
+          <div class="work-tags">WooCommerce</div>
+          <h4>Advanced Coupons</h4>
+          <p class="work-desc">Series of WooCommerce promotional campaigns — landing pages, coupon design, and seasonal email sends that drove conversions.</p>
+          <div class="work-by">By <b>Belle</b></div>
+        </div>
+      </article>
+
+      <article class="work-card">
+        <div class="work-thumb">
+          <svg viewBox="0 0 100 80" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14 60l16-22 14 16 14-26 14 18 14-12"/><circle cx="30" cy="38" r="2.5"/><circle cx="44" cy="54" r="2.5"/><circle cx="58" cy="28" r="2.5"/><circle cx="72" cy="46" r="2.5"/></svg>
+        </div>
+        <div class="work-meta">
+          <div class="work-tags">WordPress · CMS</div>
+          <h4>Exploration Sites</h4>
+          <p class="work-desc">Custom WordPress builds for the resources section — Elementor layouts, ACF flexible content, performance &amp; security hardening.</p>
+          <div class="work-by">By <b>Vincent</b></div>
+        </div>
+      </article>
+
+      <article class="work-card">
+        <div class="work-thumb">
+          <svg viewBox="0 0 100 80" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14 22h72v36H14z"/><path d="M14 32h72"/><circle cx="22" cy="27" r="1.5" fill="currentColor"/><circle cx="28" cy="27" r="1.5" fill="currentColor"/><path d="M22 42h32M22 48h44"/></svg>
+        </div>
+        <div class="work-meta">
+          <div class="work-tags">Webflow · CMS API</div>
+          <h4>News Release Pipeline</h4>
+          <p class="work-desc">End-to-end Webflow CMS pipeline for a TSX-listed mining company — bulk-imported 200+ press releases via the Webflow Data API.</p>
+          <div class="work-by">By <b>Vincent</b></div>
+        </div>
+      </article>
+
+      <article class="work-card">
+        <div class="work-thumb">
+          <svg viewBox="0 0 100 80" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="34" cy="40" r="14"/><circle cx="50" cy="40" r="14"/><circle cx="66" cy="40" r="14"/></svg>
+        </div>
+        <div class="work-meta">
+          <div class="work-tags">AI · Automation</div>
+          <h4>Self-Hosted AI Lead Engine</h4>
+          <p class="work-desc">End-to-end AI-powered lead pipeline running on local infrastructure — Google Maps sourcing, LLM scoring, ranked Slack digests. $0/mo cost.</p>
+          <div class="work-by">By <b>Vincent</b></div>
+        </div>
+      </article>
+
+      <article class="work-card">
+        <div class="work-thumb">
+          <svg viewBox="0 0 100 80" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="20" y="14" width="60" height="52" rx="3"/><path d="M20 26h60"/><path d="M30 38l8 8-8 8M52 54h18"/></svg>
+        </div>
+        <div class="work-meta">
+          <div class="work-tags">Social Media</div>
+          <h4>University of Santo Tomas</h4>
+          <p class="work-desc">Social media content design — Instagram grid system, story templates, and event-driven graphics for a major institution.</p>
+          <div class="work-by">By <b>Belle</b></div>
+        </div>
+      </article>
+
+      <article class="work-card">
+        <div class="work-thumb">
+          <svg viewBox="0 0 100 80" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="22" y="22" width="56" height="36" rx="6"/><circle cx="38" cy="40" r="4"/><circle cx="62" cy="40" r="4"/><path d="M50 30v20"/></svg>
+        </div>
+        <div class="work-meta">
+          <div class="work-tags">Print · Game Design</div>
+          <h4>The Fidget Game</h4>
+          <p class="work-desc">Product packaging and 2025 print catalog — a tactile, playful brand system extended across physical and digital touchpoints.</p>
+          <div class="work-by">By <b>Belle</b></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Process -->
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="left">
+        <div class="section-eyebrow"><span class="plus">+</span> How it works</div>
+        <h2>A simple <em>4-step</em> process. No surprises.</h2>
+      </div>
+      <div class="right">From first call to launch — every project follows the same clear, predictable framework so you always know what's happening and when.</div>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">Step 01</div>
+        <div class="step-title">Discovery</div>
+        <div class="step-desc">A free call to understand your business, audience, and goals. We'll walk away with a clear scope, timeline, and quote — no obligation.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">Step 02</div>
+        <div class="step-title">Design</div>
+        <div class="step-desc">Belle handles wireframes and visual mockups in Figma — refined together until it feels exactly right before any code is written.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">Step 03</div>
+        <div class="step-title">Build</div>
+        <div class="step-desc">Amiel turns the design into a private staging environment. You get review links at every milestone — no surprises at launch day.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">Step 04</div>
+        <div class="step-title">Launch &amp; Grow</div>
+        <div class="step-desc">Smooth launch, plus optional ongoing marketing, automation, and infrastructure support to keep growth compounding.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="left">
+        <div class="section-eyebrow"><span class="plus">+</span> Investment</div>
+        <h2>Clear pricing. <em>No</em> surprises.</h2>
+      </div>
+      <div class="right">Whether you need a one-off build or ongoing growth support, there's a package that fits. Every project starts with a free discovery call.</div>
+    </div>
+
+    <div class="pricing-grid">
+      <article class="price-card">
+        <div class="price-tier"><span>Starter</span></div>
+        <div class="price-name">Starter</div>
+        <div class="price-pitch">Perfect for new businesses needing a polished web presence.</div>
+        <div class="price-amount"><sup>$</sup>2,500<span style="font-size: 14px; color: var(--muted-2); margin-left: 4px;">+ tax</span></div>
+        <div class="price-meta">One-time</div>
+        <ul class="price-features">
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5 9-11"/></svg>5–8 page custom website</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5 9-11"/></svg>Mobile-responsive design</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5 9-11"/></svg>Basic SEO setup</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5 9-11"/></svg>Contact form &amp; analytics</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5 9-11"/></svg>30-day post-launch support</li>
+        </ul>
+        <a href="#contact" class="price-cta">Get Started</a>
+      </article>
+
+      <article class="price-card featured">
+        <div class="price-tier">
+          <span>Growth</span>
+          <span class="price-tag-badge">Most popular</span>
+        </div>
+        <div class="price-name">Growth</div>
+        <div class="price-pitch">Full website + brand + marketing for businesses ready to scale.</div>
+        <div class="price-amount"><sup>$</sup>5,000<span style="font-size: 14px; color: rgba(255,255,255,0.4); margin-left: 4px;">+ tax</span></div>
+        <div class="price-meta">One-time</div>
+        <ul class="price-features">
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5 9-11"/></svg>10–20 page site or WooCommerce store</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5 9-11"/></svg>Brand identity &amp; style guide</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5 9-11"/></svg>Advanced SEO &amp; speed optimization</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5 9-11"/></svg>Social media content templates</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5 9-11"/></svg>Email marketing setup</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5 9-11"/></svg>60-day post-launch support</li>
+        </ul>
+        <a href="#contact" class="price-cta">Get Started →</a>
+      </article>
+
+      <article class="price-card">
+        <div class="price-tier"><span>Partner</span></div>
+        <div class="price-name">Partner</div>
+        <div class="price-pitch">Ongoing marketing, maintenance &amp; growth — your digital team on retainer.</div>
+        <div class="price-amount"><sup>$</sup>1,250<span style="font-size: 14px; color: var(--muted-2); margin-left: 4px;">/month</span></div>
+        <div class="price-meta">Monthly</div>
+        <ul class="price-features">
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5 9-11"/></svg>Website maintenance &amp; updates</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5 9-11"/></svg>Social media management</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5 9-11"/></svg>Monthly content creation</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5 9-11"/></svg>AI &amp; automation upkeep</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5 9-11"/></svg>Priority support</li>
+        </ul>
+        <a href="#contact" class="price-cta">Let's Talk</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-left">
+        <div class="section-eyebrow"><span class="plus">+</span> Start a project</div>
+        <h2>Let's build something <em>together</em>.</h2>
+        <p>Tell us about your project and we'll come back with a clear scope, timeline, and quote — no obligation, no pressure. Most projects kick off within a week of first contact.</p>
+
+        <div class="info-list">
+          <div class="info-item">
+            <div class="info-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            </div>
+            <div>
+              <div class="info-label">Email</div>
+              <div class="info-value"><a href="mailto:vincentcanas@gmail.com">vincentcanas@gmail.com</a></div>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a8 8 0 018 8c0 6-8 12-8 12S4 16 4 10a8 8 0 018-8z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="info-label">Location</div>
+              <div class="info-value">Cebu, Philippines</div>
+              <div class="info-sub">Working globally · GMT+8</div>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            </div>
+            <div>
+              <div class="info-label">Response time</div>
+              <div class="info-value">Within 24 hours</div>
+              <div class="info-sub">Usually much faster.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form class="form-card" onsubmit="event.preventDefault(); alert('Thanks! We\'ll be in touch within 24h.');">
+        <div class="field-row">
+          <div class="field">
+            <label for="fname">Your name</label>
+            <input id="fname" type="text" placeholder="Jane Smith" required />
+          </div>
+          <div class="field">
+            <label for="femail">Email</label>
+            <input id="femail" type="email" placeholder="jane@company.com" required />
+          </div>
+        </div>
+        <div class="field">
+          <label for="fneed">What do you need?</label>
+          <select id="fneed">
+            <option>Select a service</option>
+            <option>Website Build</option>
+            <option>Social Media Management</option>
+            <option>Marketing &amp; Brand</option>
+            <option>AI &amp; Automation Setup</option>
+            <option>Ongoing Partner Retainer</option>
+            <option>Not sure yet — let's chat</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="fmsg">Tell us about your project</label>
+          <textarea id="fmsg" placeholder="A few sentences about what you're building, your timeline, and your goals."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message <span class="arrow">→</span></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="wrap">
+    <a href="#" class="logo">viable</a>
+    <div class="footer-meta">
+      <span>© 2026 Viable Agency</span>
+      <a href="mailto:vincentcanas@gmail.com">vincentcanas@gmail.com</a>
+      <span>Cebu · Working globally</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Subtle pointer-position tracking for service cards
+  document.querySelectorAll('[data-track]').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty('--mx', ((e.clientX - rect.left) / rect.width * 100) + '%');
+      card.style.setProperty('--my', ((e.clientY - rect.top) / rect.height * 100) + '%');
+    });
+  });
+
+  // Reveal on scroll
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.section-head, .service-card, .team-card, .work-card, .step, .price-card, .form-card, .info-list')
+    .forEach(el => { el.classList.add('reveal'); obs.observe(el); });
+
+  // Smooth-anchor offset
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href');
+      if (id.length > 1 && document.querySelector(id)) {
+        e.preventDefault();
+        document.querySelector(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

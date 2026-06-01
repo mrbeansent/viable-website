@@ -1,5 +1,3 @@
-import Reveal from './Reveal'
-
 const projects = [
   {
     tags: 'Brand · Marketing',
@@ -53,7 +51,7 @@ const projects = [
   {
     tags: 'WordPress · CMS',
     title: 'Exploration Sites',
-    desc: 'Custom WordPress builds — Elementor layouts, ACF flexible content, performance & security hardening.',
+    desc: 'Custom WordPress builds — Elementor layouts, ACF flexible content, performance &amp; security hardening.',
     by: 'Vincent',
     svg: (
       <svg viewBox="0 0 100 80" fill="none" stroke="currentColor" strokeWidth="1.4">
@@ -119,25 +117,18 @@ export default function Portfolio() {
   return (
     <section id="work">
       <div className="container">
-        <Reveal className="section-head">
-          <div className="left">
-            <div className="section-eyebrow"><span className="plus">+</span> Selected work</div>
-            <h2>Projects that <em>prove</em> results.</h2>
-          </div>
-          <div className="right">
-            A snapshot of what we build and the impact it creates — pulled from both founders&apos; portfolios.
-          </div>
-        </Reveal>
+        <span className="section-eyebrow">Selected work</span>
+        <h2>Projects that <em>prove</em> results.</h2>
+        <p className="section-sub">A snapshot of what we build and the impact it creates — pulled from both founders&apos; portfolios.</p>
+
         <div className="work-grid">
-          {projects.map((p) => (
+          {projects.map((p, i) => (
             <article key={p.title} className="work-card">
-              <div className="work-thumb">{p.svg}</div>
-              <div className="work-meta">
-                <div className="work-tags">{p.tags}</div>
-                <h4>{p.title}</h4>
-                <p className="work-desc">{p.desc}</p>
-                <div className="work-by">By <b>{p.by}</b></div>
-              </div>
+              <div className={`work-visual${i % 2 === 1 ? ' purple-visual' : ''}`}>{p.svg}</div>
+              <div className="work-tags"><span>{p.tags}</span></div>
+              <h4>{p.title}</h4>
+              <p>{p.desc}</p>
+              <div className="work-by">By <b>{p.by}</b></div>
             </article>
           ))}
         </div>
