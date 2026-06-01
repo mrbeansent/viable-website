@@ -14,7 +14,7 @@
   --purple:#A87AE0;
   --purple-2:#C49BF0;
   --light:#F8F8FB;
-  --container:1200px;
+  --container:1100px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
