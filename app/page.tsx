@@ -1,27 +1,38 @@
-import Nav from '@/components/Nav'
+import SiteShell from '@/components/SiteShell'
 import Hero from '@/components/Hero'
-import Services from '@/components/Services'
-import About from '@/components/About'
-import Portfolio from '@/components/Portfolio'
-import Process from '@/components/Process'
-import Pricing from '@/components/Pricing'
-import Contact from '@/components/Contact'
-import Footer from '@/components/Footer'
+import ToolsCarousel from '@/components/ToolsCarousel'
+import TrackRecord from '@/components/TrackRecord'
+import WhatWeDo from '@/components/WhatWeDo'
+import InquiryLeaks from '@/components/InquiryLeaks'
+import Options from '@/components/Options'
+import HowItWorks from '@/components/HowItWorks'
+import WhoWeHelp from '@/components/WhoWeHelp'
+import IsThisYou from '@/components/IsThisYou'
+import People from '@/components/People'
+import Reviews from '@/components/Reviews'
+import FoundingOffer from '@/components/FoundingOffer'
+import QuizTeaser from '@/components/QuizTeaser'
+import Faq from '@/components/Faq'
+import FinalCta from '@/components/FinalCta'
 
 export default function Home() {
   return (
-    <>
-      <Nav />
-      <main>
-        <Hero />
-        <Services />
-        <About />
-        <Portfolio />
-        <Process />
-        <Pricing />
-        <Contact />
-      </main>
-      <Footer />
-    </>
+    <SiteShell>
+      <Hero />
+      <ToolsCarousel />
+      <TrackRecord />
+      <WhatWeDo />
+      <InquiryLeaks />
+      <Options />
+      <HowItWorks />
+      <WhoWeHelp />
+      <IsThisYou />
+      <People />
+      <Reviews />
+      <FoundingOffer />
+      <QuizTeaser />
+      <Faq />
+      <FinalCta />
+    </SiteShell>
   )
 }

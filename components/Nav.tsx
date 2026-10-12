@@ -1,31 +1,20 @@
-'use client'
-import { useEffect, useState } from 'react'
-import Logo from './Logo'
+import { REQUEST_AUDIT } from './links'
 
 export default function Nav() {
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', handler, { passive: true })
-    return () => window.removeEventListener('scroll', handler)
-  }, [])
-
   return (
-    <nav className={scrolled ? 'scrolled' : ''}>
-      <div className="nav-inner">
-        <a href="#" className="logo">
-          <Logo />
+    <header className="nav">
+      <div className="container nav-inner">
+        <a href="/" className="nav-logo" aria-label="Viable Works home">
+          <img src="/img/logo.png" alt="Viable" width={150} height={47} />
         </a>
-        <div className="nav-links" style={{ display: 'flex', gap: 32, alignItems: 'center' }}>
-          <a href="#services">Services</a>
-          <a href="#team">Who We Are</a>
-          <a href="#work">Work</a>
-          <a href="#pricing">Engagement</a>
-          <a href="#process">Process</a>
-          <a href="#contact" className="btn btn-primary">Get in touch →</a>
-        </div>
+        <nav className="nav-links" aria-label="Primary">
+          <a href="/services">Services</a>
+          <a href="/#who-we-help">Who we help</a>
+          <a href="/about">About</a>
+          <a href="/quiz">Find your fix</a>
+        </nav>
+        <a href={REQUEST_AUDIT} className="btn btn-primary">Request a free audit</a>
       </div>
-    </nav>
+    </header>
   )
 }

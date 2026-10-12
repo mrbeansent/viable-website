@@ -1,22 +1,24 @@
 import type { Metadata } from 'next'
+import { Arimo } from 'next/font/google'
 import './globals.css'
 
+const arimo = Arimo({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-arimo',
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
-  title: 'Viable Works — We build websites that grow businesses.',
-  description: 'Viable Works is a boutique digital agency for small businesses. Web design, social media, email marketing, CRM, video editing, and podcast production.',
+  title: 'Viable Works — Your website should bring you customers.',
+  description:
+    'Viable Works builds websites, email and follow-up systems that turn visitors into inquiries. Free 15-minute call, fixed-scope proposals, based in Cebu City.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body>
-        <div className="ambient">
-          <div className="orb orb-1"></div>
-          <div className="orb orb-2"></div>
-          <div className="orb orb-3"></div>
-        </div>
-        {children}
-      </body>
+    <html lang="en" className={arimo.variable}>
+      <body>{children}</body>
     </html>
   )
 }
