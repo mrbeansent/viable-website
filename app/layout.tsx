@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Arimo } from 'next/font/google'
+import RequestProvider from '@/components/request/RequestProvider'
 import './globals.css'
 
 const arimo = Arimo({
@@ -9,9 +10,9 @@ const arimo = Arimo({
   display: 'swap',
 })
 
-const title = 'Viable Works — Your website should bring you customers.'
+const title = 'Viable Works — Stop doing it all yourself. Start getting customers.'
 const description =
-  'Viable Works builds websites, email and follow-up systems that turn visitors into inquiries. Free 15-minute call, fixed-scope proposals, based in Cebu City.'
+  'Viable Works builds your website, runs your email and social media, and follows up every inquiry. Request a free audit. Based in Cebu City.'
 
 // The share image comes from app/opengraph-image.png and app/twitter-image.png (Viable logo).
 export const metadata: Metadata = {
@@ -25,7 +26,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={arimo.variable}>
-      <body>{children}</body>
+      <body>
+        <RequestProvider>{children}</RequestProvider>
+      </body>
     </html>
   )
 }

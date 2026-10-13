@@ -6,13 +6,13 @@ import MonthlyPlans from '@/components/services/MonthlyPlans'
 import OnRequest from '@/components/services/OnRequest'
 import Options from '@/components/Options'
 import HowItWorks from '@/components/HowItWorks'
-import FoundingOffer from '@/components/FoundingOffer'
+import PriceEffort from '@/components/PriceEffort'
 import FinalCta from '@/components/FinalCta'
 
 export const metadata: Metadata = {
   title: 'Services — Viable Works',
   description:
-    'One-time projects and monthly plans with clear scopes and starting prices. Book a free 15-minute call and we confirm the right size.',
+    'One-time projects and monthly plans with clear scopes and starting prices. Request a free audit and we confirm the right size.',
 }
 
 export default function ServicesPage() {
@@ -29,7 +29,7 @@ export default function ServicesPage() {
       <OnRequest />
       <Options />
       <HowItWorks />
-      <FoundingOffer />
+      <PriceEffort />
       <FinalCta />
     </SiteShell>
   )

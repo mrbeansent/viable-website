@@ -1,8 +1,8 @@
 import SectionHead from './SectionHead'
 
 const STEPS = [
-  { title: 'Free 15-minute call', when: 'Day 0', body: 'We listen, look at your site together and say honestly if we are a fit.', you: 'Your website link and your biggest pain.', pay: 'Free' },
-  { title: 'Audit and proposal', when: 'Within 2 working days', body: 'A short written audit with a 5-minute video, a fixed scope, a timeline and a price.', you: 'Questions or changes.', pay: 'Free' },
+  { title: 'Request your free audit', when: 'Day 0', body: 'You send your link, email and biggest problem. No call needed. A free 15-minute call is optional.', you: 'Your website link and your biggest pain.', pay: 'Free' },
+  { title: 'Audit and proposal', when: 'Within 2 working days', body: 'A short written audit, the top 3 fixes in order, a fixed scope, a timeline and a price.', you: 'Questions or changes.', pay: 'Free' },
   { title: 'Approve and start', when: 'Day 3', body: 'We send the agreement and invoice.', you: 'Sign and pay the 50% deposit.', pay: '50% to start' },
   { title: 'Onboarding call', when: 'Within 2 days of the deposit', body: 'We collect logins and set up your tools: analytics, CRM, shared folder.', you: 'Logins, logo, photos and content.', pay: 'Included' },
   { title: 'We build', when: '14 working days from your content', body: 'Design and build. A progress update every week and two rounds of revisions.', you: 'Feedback within 2 working days.', pay: 'Included' },

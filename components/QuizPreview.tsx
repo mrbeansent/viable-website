@@ -5,7 +5,7 @@ import { QUIZ } from './links'
 const OPTIONS = [
   'Inquiries get slow replies',
   'My website looks dated',
-  'People cannot find us on Google',
+  'People cannot find us on Google or AI',
   'Leads go cold after the first message',
 ]
 

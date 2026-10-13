@@ -10,13 +10,14 @@ const TILES = [
 export default function OnRequest() {
   return (
     <section id="ai" className="sec sec--dark sec-ai">
+      <img className="tex" src="/img/bg/ai.png" alt="" />
       <div className="glow glow-1" />
       <div className="glow glow-2" />
       <div className="container">
         <div className="ai-layout">
           <div className="ai-copy">
             <span className="ai-chip">
-              <img src="/img/icons/ai-chip.svg" alt="" width={16} height={16} />
+              <img src="/img/icons2/ai-chip.svg" alt="" width={16} height={16} />
               AI-READY CONSULTATION
             </span>
             <h2>
@@ -33,7 +34,7 @@ export default function OnRequest() {
             {TILES.map((t) => (
               <article key={t.title} className="ai-tile">
                 <div className="ai-icon">
-                  <img src={`/img/icons/${t.icon}.svg`} alt="" width={26} height={26} />
+                  <img src={`/img/icons2/${t.icon}.svg`} alt="" width={26} height={26} />
                 </div>
                 <h3>{t.title}</h3>
                 <p>{t.body}</p>

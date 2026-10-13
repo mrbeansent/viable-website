@@ -1,4 +1,4 @@
-import { REQUEST_AUDIT } from './links'
+import RequestButton from './request/RequestButton'
 
 export default function Nav() {
   return (
@@ -13,7 +13,7 @@ export default function Nav() {
           <a href="/about">About</a>
           <a href="/quiz">Find your fix</a>
         </nav>
-        <a href={REQUEST_AUDIT} className="btn btn-primary">Request a free audit</a>
+        <RequestButton kind="audit">Request a free audit</RequestButton>
       </div>
     </header>
   )

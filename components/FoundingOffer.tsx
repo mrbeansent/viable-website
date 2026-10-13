@@ -1,7 +1,32 @@
 import { BOOK_CALL } from './links'
 
 const GET = ['Founding price on every package', 'Monthly rates locked for 6 months', 'Priority booking for your project']
-const ASK = ['A short testimonial', 'Permission to share your results', 'Two introductions to people like you']
+const ASK = ['A short testimonial', 'Permission to share your results', 'Introductions to people like you. Optional']
+
+const SPOTS_TAKEN = 2
+const SPOTS_TOTAL = 5
+
+// Two outlined circles (taken) and three filled ones (left), as in the design.
+function SpotDots() {
+  return (
+    <svg className="dots" viewBox="0 0 180 28" width={180} height={28} role="img" aria-label={`${SPOTS_TOTAL - SPOTS_TAKEN} of ${SPOTS_TOTAL} spots left`}>
+      <defs>
+        <linearGradient id="spot" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#8b6cf6" />
+          <stop offset="1" stopColor="#43268f" />
+        </linearGradient>
+      </defs>
+      {Array.from({ length: SPOTS_TOTAL }, (_, i) => {
+        const cx = 14 + i * 38
+        return i < SPOTS_TAKEN ? (
+          <circle key={i} cx={cx} cy={14} r={13} fill="none" stroke="#a9a9c0" strokeWidth={1.5} />
+        ) : (
+          <circle key={i} cx={cx} cy={14} r={13} fill="url(#spot)" />
+        )
+      })}
+    </svg>
+  )
+}
 
 export default function FoundingOffer() {
   return (
@@ -13,7 +38,7 @@ export default function FoundingOffer() {
           <div className="founding">
             <div className="founding-copy">
               <span className="tag">
-                <img src="/img/icons/award.svg" alt="" width={18} height={18} />
+                <img src="/img/icons2/f-award.svg" alt="" width={18} height={18} />
                 Founding clients · first 5 only
               </span>
               <h2>Lock in founding rates for 6 months.</h2>
@@ -27,18 +52,18 @@ export default function FoundingOffer() {
                   <ul>
                     {GET.map((item) => (
                       <li key={item}>
-                        <img src="/img/icons/check-founding.svg" alt="" width={18} height={18} />
+                        <img src="/img/icons2/f-check.svg" alt="" width={18} height={18} />
                         {item}
                       </li>
                     ))}
                   </ul>
                 </div>
                 <div className="ask">
-                  <h3>What we ask</h3>
+                  <h3>In return, only if you are happy</h3>
                   <ul>
                     {ASK.map((item) => (
                       <li key={item}>
-                        <img src="/img/icons/plus-violet.svg" alt="" width={18} height={18} />
+                        <img src="/img/icons2/f-plus.svg" alt="" width={18} height={18} />
                         {item}
                       </li>
                     ))}
@@ -48,9 +73,9 @@ export default function FoundingOffer() {
             </div>
             <div className="counter">
               <p className="label">Spots left</p>
-              <p className="big grad-text">3 of 5</p>
-              <img className="dots" src="/img/icons/spot-dots.svg" alt="" width={180} height={28} />
-              <small>Closes Dec 31, or when 5 clients sign</small>
+              <p className="big">{SPOTS_TOTAL - SPOTS_TAKEN} of {SPOTS_TOTAL}</p>
+              <SpotDots />
+              <small>Closes Dec 31, or when all 5 spots are taken</small>
               <a href={BOOK_CALL} className="btn btn-primary btn-block">Claim a founding spot</a>
             </div>
           </div>

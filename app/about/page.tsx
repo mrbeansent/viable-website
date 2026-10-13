@@ -5,8 +5,6 @@ import People from '@/components/People'
 import TrackRecord from '@/components/TrackRecord'
 import Values from '@/components/about/Values'
 import Promises from '@/components/about/Promises'
-import Reviews from '@/components/Reviews'
-import FoundingOffer from '@/components/FoundingOffer'
 import FinalCta from '@/components/FinalCta'
 
 export const metadata: Metadata = {
@@ -18,7 +16,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <SiteShell>
-      <PageHero eyebrow="About" title="Success stories from abroad, now for local businesses.">
+      <PageHero eyebrow="About" title="Success stories from abroad, now for local businesses." texture="/img/bg/about.png">
         <div className="page-sub">
           <p>
             For years, we have worked with businesses in the US, Canada and Australia, across many different
@@ -29,11 +27,9 @@ export default function AboutPage() {
         </div>
       </PageHero>
       <People showNote={false} />
-      <TrackRecord />
+      <TrackRecord showTags />
       <Values />
       <Promises />
-      <Reviews />
-      <FoundingOffer />
       <FinalCta />
     </SiteShell>
   )

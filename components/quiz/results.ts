@@ -36,7 +36,7 @@ const PAIN_MAP: Record<string, { fix: keyof typeof FIXES; told: string }> = {
   'slow-replies': { fix: 'lead-engine', told: 'replies take more than a day' },
   'cold-leads': { fix: 'lead-engine', told: 'nothing happens after the first message' },
   dated: { fix: 'site-rescue', told: 'your website looks dated or broken' },
-  google: { fix: 'grow-plan', told: 'people cannot find you on Google' },
+  google: { fix: 'grow-plan', told: 'people cannot find you on Google or in AI answers' },
   unmanaged: { fix: 'care-plan', told: 'nobody manages your emails and hosting' },
   ai: { fix: 'ai-consult', told: 'you want to use AI but do not know where to start' },
 }

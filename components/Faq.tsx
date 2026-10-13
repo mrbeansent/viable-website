@@ -1,12 +1,13 @@
 import SectionHead from './SectionHead'
 
 const FAQS = [
-  { q: 'How long does a website take?', a: 'Live in 14 working days from the day we receive your content, or you get 10% off your final invoice.' },
+  { q: 'How long does a website take?', a: 'Live in 14 working days from the day we receive your content and logins, or you get 10% off your final invoice.' },
   { q: 'Do I own my domain and website?', a: 'Yes. Your domain, hosting and logins are always yours. We never hold them hostage.' },
-  { q: 'What happens on the 15-minute call?', a: 'We look at your site and your inquiries together, tell you what we would fix first, and say honestly if we are not the right fit. No pitch deck.' },
+  { q: 'Do I need a call?', a: 'No. You can request the free audit or the portfolio without a call. If you want to talk it through, a free 15-minute call is available.' },
   { q: 'Do you work outside Cebu?', a: 'Yes. We work with businesses across the Philippines and with clients abroad. Calls and projects run online.' },
   { q: 'What if I only need a small fix?', a: 'Start with a free audit or a Quick Fix. You do not need a full rebuild to get a better result.' },
-  { q: 'What does it cost?', a: 'Starting prices are on the Services page. After the audit we send a fixed price, so there are no surprises.' },
+  { q: 'What does it cost?', a: 'Starting prices are on the Services page. After the audit you get a fixed quote: 50% to start and 50% before go-live.' },
+  { q: 'What is AEO, and do I need it?', a: 'AEO stands for Answer Engine Optimization. More people now ask ChatGPT, Google AI and similar tools instead of searching. AEO sets up your website and business details so those tools can find you and name you in their answers. If your customers could be asking AI for a business like yours, it is worth having. We set it up for you.' },
 ]
 
 export default function Faq() {

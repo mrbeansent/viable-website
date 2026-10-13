@@ -1,13 +1,14 @@
 'use client'
-import { useState } from 'react'
+import { useState, type FormEvent } from 'react'
 import { BOOK_CALL } from '../links'
 import { QUESTIONS, TOTAL_QUESTIONS } from './data'
 import { computeResult } from './results'
 
-type Step = 'intro' | number | 'contact' | 'result'
+type Step = 'intro' | number | 'result' | 'email' | 'sent'
 type Answers = Record<string, string[]>
 
 const EMPTY_CONTACT = { name: '', email: '', business: '', phone: '', consent: false }
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 export default function QuizFlow() {
   const [step, setStep] = useState<Step>('intro')
@@ -15,14 +16,14 @@ export default function QuizFlow() {
   const [contact, setContact] = useState(EMPTY_CONTACT)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
-  const [emailed, setEmailed] = useState(false)
 
   const result = computeResult(answers.pains ?? [])
 
   const goBack = () => {
     setError('')
     if (typeof step === 'number') setStep(step === 0 ? 'intro' : step - 1)
-    else if (step === 'contact') setStep(QUESTIONS.length - 1)
+    else if (step === 'result') setStep(QUESTIONS.length - 1)
+    else if (step === 'email') setStep('result')
   }
 
   const toggle = (qid: string, optionId: string, multi: boolean, max?: number) => {
@@ -35,26 +36,27 @@ export default function QuizFlow() {
     })
   }
 
-  const submit = async (emailResult = false) => {
+  const submit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
     setSubmitting(true)
     setError('')
+    const honeypot = (new FormData(e.currentTarget).get('nickname') as string) ?? ''
     try {
       const res = await fetch('/api/quiz', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...contact,
+          nickname: honeypot,
           answers,
           result: { start: result.start.name, then: result.then?.name ?? null },
-          emailResult,
         }),
       })
       const data = await res.json().catch(() => ({}))
       if (!res.ok) throw new Error(data.error || 'Something went wrong. Please try again.')
-      if (emailResult) setEmailed(true)
-      else setStep('result')
-    } catch (e) {
-      setError(e instanceof Error ? e.message : 'Something went wrong. Please try again.')
+      setStep('sent')
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.')
     } finally {
       setSubmitting(false)
     }
@@ -63,9 +65,8 @@ export default function QuizFlow() {
   const questionIndex = typeof step === 'number' ? step : null
   const question = questionIndex !== null ? QUESTIONS[questionIndex] : null
   const selected = question ? (answers[question.id] ?? []) : []
-  const percent = Math.round(((questionIndex ?? 0) + 1) / TOTAL_QUESTIONS * 100)
-
-  const contactReady = contact.name.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact.email) && contact.consent
+  const percent = Math.round((((questionIndex ?? 0) + 1) / TOTAL_QUESTIONS) * 100)
+  const emailReady = EMAIL_RE.test(contact.email) && contact.consent
 
   return (
     <div className="quiz-page">
@@ -109,7 +110,7 @@ export default function QuizFlow() {
             <h1 className="quiz-q-title">{question.title}</h1>
             <p className="quiz-hint">{question.hint}</p>
             <div
-              className="q-options"
+              className={`q-options${question.id === 'type' ? ' cap' : ''}`}
               role={question.multi ? 'group' : 'radiogroup'}
               aria-label={question.title}
             >
@@ -136,7 +137,7 @@ export default function QuizFlow() {
                 type="button"
                 className="btn btn-primary"
                 disabled={selected.length === 0}
-                onClick={() => setStep(questionIndex + 1 < QUESTIONS.length ? questionIndex + 1 : 'contact')}
+                onClick={() => setStep(questionIndex + 1 < QUESTIONS.length ? questionIndex + 1 : 'result')}
               >
                 Next
               </button>
@@ -144,21 +145,42 @@ export default function QuizFlow() {
           </div>
         )}
 
-        {step === 'contact' && (
+        {step === 'result' && (
+          <div className="quiz-col quiz-result">
+            <p className="eyebrow">Your result</p>
+            <h1 className="quiz-q-title">Your best first move is {result.start.name}.</h1>
+            <div className="start-card">
+              <p className="start-label">Start here</p>
+              <h2>{result.start.name}</h2>
+              <p>{result.start.body}</p>
+              {result.because && <p className="because">{result.because}</p>}
+            </div>
+            {result.then && (
+              <div className="then-card">
+                <span className="then-label">Then add</span>
+                <strong>{result.then.name}</strong>
+                <span>{result.then.short}</span>
+              </div>
+            )}
+            <div className="result-ctas">
+              <a href={BOOK_CALL} className="btn btn-primary">Book a free 15-minute call</a>
+              <button type="button" className="btn btn-ghost" onClick={() => setStep('email')}>
+                Email me this result
+              </button>
+            </div>
+            <p className="quiz-small">We will review your answers before the call. No prices shown here on purpose.</p>
+            <button type="button" className="btn-text" onClick={goBack}>Change my answers</button>
+          </div>
+        )}
+
+        {step === 'email' && (
           <div className="quiz-col quiz-contact">
-            <p className="eyebrow">Almost there</p>
-            <h1 className="quiz-q-title">Where should we send your result?</h1>
-            <form
-              className="quiz-form"
-              onSubmit={(e) => {
-                e.preventDefault()
-                if (contactReady) submit()
-              }}
-            >
+            <p className="eyebrow">Optional last step</p>
+            <h1 className="quiz-q-title">Want this result sent to you?</h1>
+            <form className="quiz-form" onSubmit={submit} noValidate>
               <label>
-                Your name
+                Your name (optional)
                 <input
-                  required
                   autoComplete="name"
                   placeholder="Maria Santos"
                   value={contact.name}
@@ -195,6 +217,7 @@ export default function QuizFlow() {
                   onChange={(e) => setContact({ ...contact, phone: e.target.value })}
                 />
               </label>
+              <input className="req-hp" name="nickname" tabIndex={-1} autoComplete="off" aria-hidden />
               <label className="consent">
                 <input
                   type="checkbox"
@@ -202,50 +225,30 @@ export default function QuizFlow() {
                   onChange={(e) => setContact({ ...contact, consent: e.target.checked })}
                 />
                 <span>
-                  I agree that Viable Works may contact me about my result. Read our <a href="/privacy" target="_blank">Privacy page</a>.
+                  I agree that Viable Works may email me this result. Read our <a href="/privacy" target="_blank">Privacy page</a>.
                 </span>
               </label>
               {error && <p className="quiz-error" role="alert">{error}</p>}
               <div className="quiz-nav">
                 <button type="button" className="btn-text" onClick={goBack}>Back</button>
-                <button type="submit" className="btn btn-primary" disabled={!contactReady || submitting}>
-                  {submitting ? 'Sending…' : 'Show my result'}
+                <button type="submit" className="btn btn-primary" disabled={!emailReady || submitting}>
+                  {submitting ? 'Sending…' : 'Email me my result'}
                 </button>
               </div>
             </form>
           </div>
         )}
 
-        {step === 'result' && (
-          <div className="quiz-col quiz-result">
-            <p className="eyebrow">Your result</p>
-            <h1 className="quiz-q-title">Your best first move is {result.start.name}.</h1>
-            <div className="start-card">
-              <p className="start-label">Start here</p>
-              <h2>{result.start.name}</h2>
-              <p>{result.start.body}</p>
-              {result.because && <p className="because">{result.because}</p>}
-            </div>
-            {result.then && (
-              <div className="then-card">
-                <span className="then-label">Then add</span>
-                <strong>{result.then.name}</strong>
-                <span>{result.then.short}</span>
-              </div>
-            )}
-            <div className="result-ctas">
-              <a href={BOOK_CALL} className="btn btn-primary">Book a free 15-minute call</a>
-              <button
-                type="button"
-                className="btn btn-ghost"
-                disabled={submitting || emailed}
-                onClick={() => submit(true)}
-              >
-                {emailed ? 'We will email it to you' : 'Email me this result'}
-              </button>
-            </div>
-            {error && <p className="quiz-error" role="alert">{error}</p>}
-            <p className="quiz-small">We will review your answers before the call. No prices shown here on purpose.</p>
+        {step === 'sent' && (
+          <div className="quiz-center">
+            <p className="eyebrow">All set</p>
+            <h1 className="quiz-q-title">Your result is on its way.</h1>
+            <p className="quiz-lede">
+              We will email your result to {contact.email}. If you want to talk it through, a free 15-minute call is
+              available.
+            </p>
+            <a href={BOOK_CALL} className="btn btn-primary">Book a free 15-minute call</a>
+            <a href="/" className="btn-text">Back to the site</a>
           </div>
         )}
       </div>

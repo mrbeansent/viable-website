@@ -8,11 +8,15 @@ const PROMISES = [
 export default function Promises() {
   return (
     <section className="sec sec--dark sec-promises">
+      <div className="glow glow-a" />
+      <div className="glow glow-b" />
       <div className="container">
-        <h2 className="h2-md">What you can count on</h2>
+        <p className="eyebrow">OUR PROMISES TO YOU</p>
+        <h2>What you can count on</h2>
         <div className="promises">
-          {PROMISES.map((p) => (
+          {PROMISES.map((p, i) => (
             <article key={p.title} className="promise">
+              <p className="pnum">{String(i + 1).padStart(2, '0')}</p>
               <h3>{p.title}</h3>
               <p>{p.body}</p>
             </article>
