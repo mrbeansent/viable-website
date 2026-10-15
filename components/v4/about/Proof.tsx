@@ -75,7 +75,7 @@ const QUOTES = [
 function CardLabel({ icon, children }: { icon: string; children: string }) {
   return (
     <div className="about-cardlabel">
-      <img src={`${IMG}/${icon}`} alt="" width={24} height={24} />
+      <img src={`${IMG}/${icon}`} alt="" aria-hidden="true" width={24} height={24} />
       <p className="t-label">{children}</p>
     </div>
   )
@@ -127,7 +127,7 @@ export default function Proof() {
           {RESULTS.map((r) => (
             <div key={r.n} className={`about-result${r.hot ? ' about-result--hot' : ''}`}>
               <div className="about-result__top">
-                <img src={`${IMG}/${r.hot ? 'icon-trend-light.svg' : 'icon-trend.svg'}`} alt="" width={20} height={20} />
+                <img src={`${IMG}/${r.hot ? 'icon-trend-light.svg' : 'icon-trend.svg'}`} alt="" aria-hidden="true" width={20} height={20} />
                 <p className="t-label">Results</p>
               </div>
               <p className="about-result__num">{r.n}</p>
@@ -170,7 +170,7 @@ export default function Proof() {
         <div className="about-proof__row about-proof__row--quotes">
           {QUOTES.map((q) => (
             <div key={q} className="about-quote">
-              <img src={`${IMG}/icon-quote.svg`} alt="" width={28} height={28} />
+              <img src={`${IMG}/icon-quote.svg`} alt="" aria-hidden="true" width={28} height={28} />
               <p className="about-quote__text">
                 [Paste a real client quote here: one or two sentences on the result they got.]
               </p>

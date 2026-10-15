@@ -9,7 +9,7 @@ export default function HowItWorks() {
         <ol className="svc-steps">
           {STEPS.map((s, i) => (
             <li key={s.title} className="svc-step">
-              <img className="svc-step__dot" src={`/img/v4/services/${i === 0 ? 'dot-filled' : 'dot-outline'}.svg`} alt="" width={13} height={13} />
+              <img className="svc-step__dot" src={`/img/v4/services/${i === 0 ? 'dot-filled' : 'dot-outline'}.svg`} alt="" aria-hidden="true" width={13} height={13} />
               <p className="svc-step__when">{s.when}</p>
               <p className="svc-step__n">{String(i + 1).padStart(2, '0')}</p>
               <h3 className="svc-step__title">{s.title}</h3>

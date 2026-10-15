@@ -1,13 +1,13 @@
 const SITES = [
-  { url: 'kol-360.com', shot: 'work-kol360.png', title: 'KOL360', sub: 'Thought-leader research methodology' },
-  { url: 'dryeyecouncil.com', shot: 'work-dryeye.png', title: 'Dry Eye Council', sub: 'Clinical strategy for eye-care brands' },
+  { url: 'kol-360.com', shot: 'work-kol360.webp', title: 'KOL360', sub: 'Thought-leader research methodology' },
+  { url: 'dryeyecouncil.com', shot: 'work-dryeye.webp', title: 'Dry Eye Council', sub: 'Clinical strategy for eye-care brands' },
 ]
 
 export default function RecentWork() {
   return (
     <section className="home-dark home-work" data-qa="home-work">
       <div className="home-work__bg" aria-hidden="true">
-        <img src="/img/v4/home/work-bg.png" alt="" />
+        <img src="/img/v4/home/work-bg.png" alt="" aria-hidden="true" />
         <div />
       </div>
       <div className="container home-stack home-stack--64">

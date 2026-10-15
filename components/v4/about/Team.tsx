@@ -1,8 +1,9 @@
 const LEADS = [
   {
     name: 'Vincent',
+    alt: 'Vincent, web development and hosting lead',
     role: 'Web development & hosting',
-    img: '/img/v4/about/team-vincent.jpg',
+    img: '/img/v4/about/team-vincent.webp',
     imgStyle: { height: '350.23%', left: '-57.06%', top: '-93.41%', width: '233.51%' },
     bg: '#0a0a13',
     facts: [
@@ -14,8 +15,9 @@ const LEADS = [
   },
   {
     name: 'Belle',
+    alt: 'Belle, marketing and graphic design lead',
     role: 'Marketing & graphic design',
-    img: '/img/v4/about/team-belle.png',
+    img: '/img/v4/about/team-belle.webp',
     imgStyle: { left: '-26.36%', top: '-9.52%', width: '131.72%', height: '131.72%' },
     bg: '#0191c8',
     facts: [
@@ -58,7 +60,7 @@ export default function Team() {
             <article key={l.name} className="about-lead">
               <div className="about-lead__head">
                 <div className="about-lead__photo" style={{ background: l.bg }}>
-                  <img src={l.img} alt={l.name} style={l.imgStyle} loading="lazy" />
+                  <img src={l.img} alt={l.alt} style={l.imgStyle} loading="lazy" />
                 </div>
                 <div>
                   <h3 className="about-lead__name">{l.name}</h3>

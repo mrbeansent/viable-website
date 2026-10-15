@@ -6,21 +6,21 @@ const IMG = '/img/v4/about'
 
 // Work mosaic tiles: [left, top, image] inside the 889x1587 rotated board
 const TILES: [number, number, string][] = [
-  [0, 0, 'mosaic-0.jpg'],
-  [0, 186, 'proj-sunvoy.jpg'],
-  [0, 372, 'proj-eflex-a.jpg'],
-  [0, 558, 'site-vanguard.jpg'],
-  [0, 744, 'mosaic-4.jpg'],
-  [256, -120, 'mosaic-5.jpg'],
-  [256, 66, 'mosaic-6.jpg'],
-  [256, 252, 'mosaic-7.jpg'],
-  [256, 438, 'proj-fidget.jpg'],
-  [256, 624, 'proj-integria-post.jpg'],
-  [512, -40, 'mosaic-10.jpg'],
-  [512, 146, 'site-vanguard.jpg'],
-  [512, 332, 'proj-coupons.jpg'],
-  [512, 518, 'mosaic-0.jpg'],
-  [512, 704, 'proj-eflex-a.jpg'],
+  [0, 0, 'mosaic-0.webp'],
+  [0, 186, 'proj-sunvoy.webp'],
+  [0, 372, 'proj-eflex-a.webp'],
+  [0, 558, 'site-vanguard.webp'],
+  [0, 744, 'mosaic-4.webp'],
+  [256, -120, 'mosaic-5.webp'],
+  [256, 66, 'mosaic-6.webp'],
+  [256, 252, 'mosaic-7.webp'],
+  [256, 438, 'proj-fidget.webp'],
+  [256, 624, 'proj-integria-post.webp'],
+  [512, -40, 'mosaic-10.webp'],
+  [512, 146, 'site-vanguard.webp'],
+  [512, 332, 'proj-coupons.webp'],
+  [512, 518, 'mosaic-0.webp'],
+  [512, 704, 'proj-eflex-a.webp'],
 ]
 
 const FLOATS = [
@@ -39,13 +39,13 @@ export default function Hero() {
   return (
     <section className="about-hero" data-qa="about-hero">
       <div className="panel about-hero__panel">
-        <img className="panel__bg" src={`${IMG}/hero-panel.jpg`} alt="" />
+        <img className="panel__bg" src={`${IMG}/hero-panel.webp`} alt="" aria-hidden="true" />
         <div className="about-hero__shade" />
         <div className="about-hero__mosaic" aria-hidden="true">
           <div className="about-hero__board">
             {TILES.map(([x, y, src], i) => (
               <div key={i} className="about-hero__tile" style={{ left: x, top: y }}>
-                <img src={`${IMG}/${src}`} alt="" loading="lazy" />
+                <img src={`${IMG}/${src}`} alt="" aria-hidden="true" loading="lazy" />
               </div>
             ))}
           </div>
@@ -54,7 +54,7 @@ export default function Hero() {
 
         {FLOATS.map((f) => (
           <div key={f.cls} className={`about-float about-float--${f.cls}`} aria-hidden="true">
-            <img src={`${IMG}/${f.dot}`} alt="" width={8} height={8} />
+            <img src={`${IMG}/${f.dot}`} alt="" aria-hidden="true" width={8} height={8} />
             <div>
               <p className="about-float__title">{f.title}</p>
               <p className="about-float__sub">{f.sub}</p>

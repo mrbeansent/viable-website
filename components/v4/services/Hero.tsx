@@ -4,7 +4,7 @@ import { TOC } from './data'
 export default function ServicesHero() {
   return (
     <section className="svc-hero panel" data-qa="services-hero">
-      <img className="panel__bg" src="/img/v4/services/hero-panel.png" alt="" />
+      <img className="panel__bg" src="/img/v4/services/hero-panel.png" alt="" aria-hidden="true" />
       <div className="svc-hero__shade" />
       {[100, 400, 700, 1000, 1300].map((x) => (
         <span key={x} className="svc-hero__line" style={{ ['--x' as string]: `${x}px` }} />

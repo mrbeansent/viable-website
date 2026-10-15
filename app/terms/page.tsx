@@ -5,6 +5,7 @@ import { TERMS_SECTIONS } from '@/components/v4/legal/terms'
 export const metadata: Metadata = {
   title: 'Terms and Conditions — Viable Works',
   description: 'The terms that apply to every quote, service agreement and monthly plan from Viable Works.',
+  alternates: { canonical: '/terms' },
 }
 
 export default function TermsPage() {

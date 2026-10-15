@@ -1,10 +1,10 @@
 const IMG = '/img/v4/about'
 
 const SITES = [
-  { src: 'site-phoenix.jpg', url: 'phoenixmetalscorp.com', name: 'Phoenix Metals', sub: 'TSX-listed copper-gold explorer, BC' },
-  { src: 'site-humangarage.jpg', url: 'humangarage.net', name: 'Human Garage', sub: 'Wellness membership and self-care programs' },
-  { src: 'site-vanguard.jpg', url: 'vanguardoptometricsociety.com', name: 'Vanguard Optometric Society', sub: 'Optometry leadership network' },
-  { src: 'site-blackrock.jpg', url: 'blackrocksilver.com', name: 'Blackrock Silver', sub: 'TSX-V silver-gold developer, Nevada' },
+  { src: 'site-phoenix.webp', url: 'phoenixmetalscorp.com', name: 'Phoenix Metals', sub: 'TSX-listed copper-gold explorer, BC' },
+  { src: 'site-humangarage.webp', url: 'humangarage.net', name: 'Human Garage', sub: 'Wellness membership and self-care programs' },
+  { src: 'site-vanguard.webp', url: 'vanguardoptometricsociety.com', name: 'Vanguard Optometric Society', sub: 'Optometry leadership network' },
+  { src: 'site-blackrock.webp', url: 'blackrocksilver.com', name: 'Blackrock Silver', sub: 'TSX-V silver-gold developer, Nevada' },
 ]
 
 export default function Launched() {
@@ -28,7 +28,7 @@ export default function Launched() {
                 <div className="about-site__bar">
                   <span className="about-site__dots">
                     {[0, 1, 2].map((i) => (
-                      <img key={i} src={`${IMG}/browser-dot.svg`} alt="" width={8} height={8} />
+                      <img key={i} src={`${IMG}/browser-dot.svg`} alt="" aria-hidden="true" width={8} height={8} />
                     ))}
                   </span>
                   <span className="about-site__url">{s.url}</span>

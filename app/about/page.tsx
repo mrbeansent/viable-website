@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   title: 'Work & About — Viable Works',
   description:
     'Success stories from abroad, now for local businesses. See our recent work and meet the team behind Viable Works.',
+  alternates: { canonical: '/about' },
 }
 
 export default function AboutPage() {

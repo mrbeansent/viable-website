@@ -27,7 +27,7 @@ export default function ServicesOverview() {
           {SERVICES.map((s) => (
             <article className="home-svc" key={s.title}>
               <div className="home-svc__top">
-                <img src={`/img/v4/home/icon-${s.icon}.svg`} alt="" width={36} height={36} />
+                <img src={`/img/v4/home/icon-${s.icon}.svg`} alt="" aria-hidden="true" width={36} height={36} />
                 <span className="home-svc__price">{s.price}</span>
               </div>
               <div className="home-svc__titles">
@@ -53,7 +53,7 @@ export default function ServicesOverview() {
             See full pricing
           </Link>
           <p className="home-services__note">
-            <img src="/img/v4/home/icon-sparkles-sm.svg" alt="" width={18} height={18} />
+            <img src="/img/v4/home/icon-sparkles-sm.svg" alt="" aria-hidden="true" width={18} height={18} />
             New: AEO setup is now included in every website we build.
           </p>
         </div>

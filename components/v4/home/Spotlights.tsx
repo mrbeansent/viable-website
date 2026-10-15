@@ -5,7 +5,7 @@ import { FREE_AUDIT } from '@/components/links'
 function Pill({ children, className }: { children: ReactNode; className: string }) {
   return (
     <div className={`home-pill ${className}`}>
-      <img src="/img/v4/home/dot-live.svg" alt="" width={8} height={8} />
+      <img src="/img/v4/home/dot-live.svg" alt="" aria-hidden="true" width={8} height={8} />
       <span>{children}</span>
     </div>
   )
@@ -14,7 +14,7 @@ function Pill({ children, className }: { children: ReactNode; className: string 
 function Media({ src, opacity, shade, children }: { src: string; opacity: number; shade: number; children: ReactNode }) {
   return (
     <div className="home-spot__media">
-      <img className="home-spot__bg" src={src} alt="" style={{ opacity }} />
+      <img className="home-spot__bg" src={src} alt="" aria-hidden="true" style={{ opacity }} />
       <div className="home-spot__shade" style={{ background: `rgba(10,10,19,${shade})` }} />
       <div className="home-spot__stage">{children}</div>
     </div>
@@ -68,12 +68,12 @@ export default function Spotlights() {
           <Media src="/img/v4/home/spot-web-media.png" opacity={0.9} shade={0.35}>
             <div className="home-browser">
               <div className="home-browser__bar" />
-              <img className="home-browser__dot" style={{ left: 11 }} src="/img/v4/home/dot-browser.svg" alt="" />
-              <img className="home-browser__dot" style={{ left: 23 }} src="/img/v4/home/dot-browser.svg" alt="" />
-              <img className="home-browser__dot" style={{ left: 35 }} src="/img/v4/home/dot-browser.svg" alt="" />
+              <img className="home-browser__dot" style={{ left: 11 }} src="/img/v4/home/dot-browser.svg" alt="" aria-hidden="true" />
+              <img className="home-browser__dot" style={{ left: 23 }} src="/img/v4/home/dot-browser.svg" alt="" aria-hidden="true" />
+              <img className="home-browser__dot" style={{ left: 35 }} src="/img/v4/home/dot-browser.svg" alt="" aria-hidden="true" />
               <div className="home-browser__url" />
               <span className="home-browser__urltext">bio-exec.com</span>
-              <img className="home-browser__shot" src="/img/v4/home/spot-web-shot.png" alt="" />
+              <img className="home-browser__shot" src="/img/v4/home/spot-web-shot.webp" alt="bio-exec.com website homepage" />
             </div>
             <Pill className="home-pill--web">Built and launched by our team</Pill>
           </Media>
@@ -106,13 +106,13 @@ export default function Spotlights() {
           <Media src="/img/v4/home/spot-social-media.png" opacity={0.95} shade={0.3}>
             <div className="home-post">
               <div className="home-post__head">
-                <img src="/img/v4/home/avatar-social.svg" alt="" width={30} height={30} />
+                <img src="/img/v4/home/avatar-social.svg" alt="" aria-hidden="true" width={30} height={30} />
                 <div>
                   <p className="home-post__name">yourbusiness.ph</p>
                   <p className="home-post__city">Cebu City</p>
                 </div>
               </div>
-              <img className="home-post__img" src="/img/v4/home/spot-social-post.png" alt="" />
+              <img className="home-post__img" src="/img/v4/home/spot-social-post.webp" alt="Social post featuring eFlexervices business card designs" />
               <div className="home-post__foot">
                 <p className="home-post__icons">♡&nbsp; ◯&nbsp; ➤</p>
                 <p className="home-post__likes">1,245 likes</p>

@@ -6,7 +6,7 @@ export default function ContactCta() {
   return (
     <section className="cta" data-qa="contact-cta">
       <div className="cta__panel">
-        <img className="cta__bg" src="/img/v4/shared/cta-panel.jpg" alt="" />
+        <img className="cta__bg" src="/img/v4/shared/cta-panel.jpg" alt="" aria-hidden="true" />
         <div className="cta__shade" />
         <p className="cta__eyebrow">Free audit  ·  No call needed  ·  Written reply in 2 working days</p>
         <h2 className="cta__title">Let’s find what’s costing you customers.</h2>

@@ -13,7 +13,7 @@ export default function Hero() {
   return (
     <section className="home-hero" data-qa="home-hero">
       <div className="home-hero__panel">
-        <img className="panel__bg" src="/img/v4/home/hero-panel.png" alt="" />
+        <img className="panel__bg" src="/img/v4/home/hero-panel.png" alt="" aria-hidden="true" />
         <div className="home-hero__shade home-hero__shade--left" />
         <div className="home-hero__shade home-hero__shade--bottom" />
         <div className="home-hero__inner">

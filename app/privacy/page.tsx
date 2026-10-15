@@ -5,6 +5,7 @@ import { PRIVACY_SECTIONS } from '@/components/v4/legal/privacy'
 export const metadata: Metadata = {
   title: 'Privacy Policy — Viable Works',
   description: 'How Viable Works collects, uses and protects personal information, and how to use your rights under the Data Privacy Act of 2012.',
+  alternates: { canonical: '/privacy' },
 }
 
 export default function PrivacyPage() {

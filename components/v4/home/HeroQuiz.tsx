@@ -29,7 +29,7 @@ export default function HeroQuiz() {
           onMouseEnter={() => setActive(i)}
           onFocus={() => setActive(i)}
         >
-          <img src={`/img/v4/home/quiz-dot-${active === i ? 'on' : 'off'}.svg`} alt="" width={16} height={16} />
+          <img src={`/img/v4/home/quiz-dot-${active === i ? 'on' : 'off'}.svg`} alt="" aria-hidden="true" width={16} height={16} />
           <span>{label}</span>
         </Link>
       ))}

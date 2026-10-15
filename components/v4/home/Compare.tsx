@@ -48,7 +48,7 @@ export default function Compare() {
             <div className="home-compare__col home-compare__col--viable">
               <div className="home-compare__vhead">
                 <span>Working with</span>
-                <img src="/img/v4/home/compare-logo.png" alt="Viable" width={120} height={36} />
+                <img src="/img/v4/home/compare-logo.webp" alt="Viable" width={120} height={36} />
                 <b>Recommended</b>
               </div>
               {VIABLE.map((t) => (

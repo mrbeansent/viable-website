@@ -31,7 +31,7 @@ export default function WhoWeHelp() {
   return (
     <section className="about-who" data-qa="about-who">
       <div className="about-who__panel">
-        <img className="about-who__glow" src="/img/v4/about/who-panel.jpg" alt="" />
+        <img className="about-who__glow" src="/img/v4/about/who-panel.webp" alt="" aria-hidden="true" />
         <div className="about-who__shade" />
         <div className="about-who__inner">
           <div className="about-who__head">

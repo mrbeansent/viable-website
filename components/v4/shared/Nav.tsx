@@ -62,7 +62,7 @@ export default function Nav({ variant = 'pill' }: { variant?: NavVariant }) {
       <nav className={`nav nav--${variant}`} ref={ref} aria-label="Primary" data-qa="nav">
         <div className="nav__bar">
           <Link href="/" className="nav__logo" aria-label="Viable Works home" onClick={closeAll}>
-            <img src="/img/v4/shared/logo.png" alt="Viable" />
+            <img src="/img/v4/shared/logo.webp" alt="Viable" />
           </Link>
           <div className="nav__links">
             <div onMouseEnter={open} onMouseLeave={closeSoon}>

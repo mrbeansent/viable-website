@@ -47,7 +47,7 @@ export default function HowItWorks() {
           <div className="home-promises__grid">
             {PROMISES.map((p) => (
               <div className="home-promise" key={p.title}>
-                <img src={`/img/v4/home/icon-${p.icon}.svg`} alt="" width={34} height={34} />
+                <img src={`/img/v4/home/icon-${p.icon}.svg`} alt="" aria-hidden="true" width={34} height={34} />
                 <h4 className="home-promise__title">{p.title}</h4>
                 <p className="home-promise__text">{p.text}</p>
               </div>

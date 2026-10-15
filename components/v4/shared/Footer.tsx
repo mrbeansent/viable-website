@@ -17,7 +17,7 @@ export default function Footer() {
       <div className="container">
         <div className="footer__cols">
           <div className="footer__brand">
-            <img src="/img/v4/shared/logo.png" alt="Viable" />
+            <img src="/img/v4/shared/logo.webp" alt="Viable" />
             <p className="footer__tag">Built to work, made to grow.</p>
             <p className="footer__desc">
               Web design and digital marketing for Philippine businesses, and for clients abroad.

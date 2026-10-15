@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: 'Book a free 15-minute call — Viable Works',
   description:
     'We will look at where your inquiries get lost and tell you plainly what we would do first. No pitch deck, no pressure.',
+  alternates: { canonical: '/book' },
 }
 
 const STEPS = [
@@ -22,7 +23,7 @@ export default function BookPage() {
     <SiteShell showContactCta={false}>
       <section className="book">
         <div className="book-panel panel">
-          <img className="panel__bg" src="/img/v4/audit/thanks-hero.png" alt="" />
+          <img className="panel__bg" src="/img/v4/audit/thanks-hero.png" alt="" aria-hidden="true" />
           <div className="book-shade" />
           <div className="book-inner">
             <div className="book-copy">

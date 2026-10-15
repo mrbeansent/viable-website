@@ -44,7 +44,7 @@ function Screen({
   return (
     <div className={`quiz ${className}`} data-qa="quiz-screen">
       <div className="quiz__bg" aria-hidden>
-        <img src={`/img/v4/quiz/${bg}.png`} alt="" />
+        <img src={`/img/v4/quiz/${bg}.png`} alt="" aria-hidden="true" />
       </div>
       <div className="quiz__shade" aria-hidden />
       <div className="quiz__grid" aria-hidden>
@@ -53,7 +53,7 @@ function Screen({
       <div className="quiz__bar" aria-hidden />
       <header className="quiz__head">
         <Link href="/" aria-label="Viable Works home">
-          <img src="/img/v4/shared/logo.png" alt="Viable" width={120} height={38} />
+          <img src="/img/v4/shared/logo.webp" alt="Viable" width={120} height={38} />
         </Link>
         <Link href="/" className="quiz__exit">
           <span>{exitLabel}</span>
@@ -228,7 +228,7 @@ export default function QuizFlow({ initialType }: { initialType?: string }) {
             <div className="quiz__start-in">
               <div className="quiz__start-main">
                 <p className="quiz__start-tag">
-                  <img src="/img/v4/quiz/icon-inbox.svg" alt="" width={28} height={28} />
+                  <img src="/img/v4/quiz/icon-inbox.svg" alt="" aria-hidden="true" width={28} height={28} />
                   <span>Start here</span>
                 </p>
                 <p className="quiz__start-name">{result.start.name}</p>
@@ -247,7 +247,7 @@ export default function QuizFlow({ initialType }: { initialType?: string }) {
             </div>
           </div>
           <div className="quiz__then">
-            <img src="/img/v4/quiz/icon-shield.svg" alt="" width={24} height={24} />
+            <img src="/img/v4/quiz/icon-shield.svg" alt="" aria-hidden="true" width={24} height={24} />
             <span className="quiz__label quiz__label--violet">Then add</span>
             <span className="quiz__then-name">{result.then.name}</span>
             <span className="quiz__then-body">{result.then.short}</span>
@@ -259,7 +259,7 @@ export default function QuizFlow({ initialType }: { initialType?: string }) {
             <Link href={BOOK_CALL} className="btn btn--ghost">Book a free 15-minute call</Link>
           </div>
           <button type="button" className="quiz__mail" onClick={() => setStep('email')}>
-            <img src="/img/v4/quiz/icon-mail.svg" alt="" width={16} height={16} />
+            <img src="/img/v4/quiz/icon-mail.svg" alt="" aria-hidden="true" width={16} height={16} />
             Email me this result
           </button>
           <p className="quiz__small">

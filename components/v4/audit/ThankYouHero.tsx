@@ -50,7 +50,7 @@ export default function ThankYouHero() {
   return (
     <section className="audit-hero audit-hero--thanks" data-qa="audit-thanks">
       <div className="audit-panel panel">
-        <img className="panel__bg" src="/img/v4/audit/thanks-hero.png" alt="" />
+        <img className="panel__bg" src="/img/v4/audit/thanks-hero.png" alt="" aria-hidden="true" />
         <div className="audit-shade" />
         <GridLines />
         <div className="audit-hero__inner">

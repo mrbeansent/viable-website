@@ -6,7 +6,7 @@ const IMG = '/img/v4/about'
 function Blob({ src, left, top, size, inset }: { src: string; left: number; top: number; size: number; inset: string }) {
   return (
     <span className="about-blob" style={{ left, top, width: size, height: size }}>
-      <img src={`${IMG}/${src}`} alt="" style={{ inset }} />
+      <img src={`${IMG}/${src}`} alt="" aria-hidden="true" style={{ inset }} />
     </span>
   )
 }
@@ -40,7 +40,7 @@ export default function Projects() {
 
         <article className="about-feature">
           <div className="about-feature__img">
-            <img src={`${IMG}/proj-sunvoy.jpg`} alt="Sunvoy website" loading="lazy" />
+            <img src={`${IMG}/proj-sunvoy.webp`} alt="Sunvoy website" loading="lazy" />
           </div>
           <div className="about-feature__body">
             <p className="about-meta">Brand &amp; marketing overhaul &nbsp;·&nbsp; Solar software, US</p>
@@ -79,7 +79,7 @@ export default function Projects() {
               <div className="about-ig">
                 <div className="about-ig__screen">
                   <div className="about-ig__head">
-                    <img src={`${IMG}/ig-avatar.svg`} alt="" width={18} height={18} />
+                    <img src={`${IMG}/ig-avatar.svg`} alt="" aria-hidden="true" width={18} height={18} />
                     <div>
                       <p className="about-ig__user">integriava</p>
                       <p className="about-ig__tag">Virtual staffing</p>
@@ -87,14 +87,14 @@ export default function Projects() {
                     <span className="about-ig__more">•••</span>
                   </div>
                   <div className="about-ig__post">
-                    <img src={`${IMG}/proj-integria-post.jpg`} alt="" />
+                    <img src={`${IMG}/proj-integria-post.webp`} alt="Integria Instagram post about business mistakes" />
                   </div>
                   <div className="about-ig__actions">
-                    <img src={`${IMG}/ig-icon-1.svg`} alt="" width={12} height={12} />
-                    <img src={`${IMG}/ig-icon-2.svg`} alt="" width={12} height={12} />
-                    <img src={`${IMG}/ig-icon-3.svg`} alt="" width={12} height={12} />
+                    <img src={`${IMG}/ig-icon-1.svg`} alt="" aria-hidden="true" width={12} height={12} />
+                    <img src={`${IMG}/ig-icon-2.svg`} alt="" aria-hidden="true" width={12} height={12} />
+                    <img src={`${IMG}/ig-icon-3.svg`} alt="" aria-hidden="true" width={12} height={12} />
                     <span />
-                    <img src={`${IMG}/ig-icon-4.svg`} alt="" width={12} height={12} />
+                    <img src={`${IMG}/ig-icon-4.svg`} alt="" aria-hidden="true" width={12} height={12} />
                   </div>
                   <p className="about-ig__cap">integriava&nbsp; Avoid these costly mistakes. Swipe for the fix →</p>
                 </div>
@@ -110,8 +110,8 @@ export default function Projects() {
 
           <article className="about-proj">
             <div className="about-proj__visual about-proj__visual--eflex">
-              <img src={`${IMG}/proj-eflex-a.jpg`} alt="" loading="lazy" />
-              <img src={`${IMG}/proj-eflex-b.png`} alt="eFlexervices brand identity" loading="lazy" />
+              <img src={`${IMG}/proj-eflex-a.webp`} alt="eFlexervices brand collage with tote bag, business cards and color palette" loading="lazy" />
+              <img src={`${IMG}/proj-eflex-b.webp`} alt="eFlexervices brand identity" loading="lazy" />
             </div>
             <Caption meta="Brand identity · BPO company" name="eFlexervices">
               Logo, colors, type, business cards, ID and a <br className="about-br" />
@@ -122,7 +122,7 @@ export default function Projects() {
           <article className="about-proj">
             <div className="about-proj__visual about-proj__visual--crop">
               <img
-                src={`${IMG}/proj-fidget.jpg`}
+                src={`${IMG}/proj-fidget.webp`}
                 alt="The Fidget Game packaging"
                 loading="lazy"
                 style={{ height: '109.62%', left: '-89.64%', top: '-4.78%', width: '265.75%' }}
@@ -135,7 +135,7 @@ export default function Projects() {
 
           <article className="about-proj">
             <div className="about-proj__visual about-proj__visual--coupons">
-              <img src={`${IMG}/proj-coupons.jpg`} alt="Advanced Coupons campaign creative" loading="lazy" />
+              <img src={`${IMG}/proj-coupons.webp`} alt="Advanced Coupons campaign creative" loading="lazy" />
             </div>
             <Caption meta="Campaign creative · WooCommerce" name="Advanced Coupons">
               Seasonal campaign creative, from Black Friday to Halloween, built around a robot mascot.
@@ -145,7 +145,7 @@ export default function Projects() {
           <article className="about-proj">
             <div className="about-proj__visual about-proj__visual--crop">
               <img
-                src={`${IMG}/proj-eyecare.jpg`}
+                src={`${IMG}/proj-eyecare.webp`}
                 alt="EyeCare Educators brand identity"
                 loading="lazy"
                 style={{ height: '142.15%', left: '-25.25%', top: '-13.55%', width: '137.35%' }}
@@ -173,7 +173,7 @@ export default function Projects() {
               </div>
               <div className="about-mail">
                 <p className="about-mail__title">
-                  <img src={`${IMG}/dot-rti.svg`} alt="" width={7} height={7} />
+                  <img src={`${IMG}/dot-rti.svg`} alt="" aria-hidden="true" width={7} height={7} />
                   Approval needed · Press release
                 </p>
                 <div className="about-mail__preview">

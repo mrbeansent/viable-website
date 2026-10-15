@@ -6,7 +6,7 @@ export default function AiConsult() {
   return (
     <section id="ai-consult" className="svc-ai" data-qa="services-ai">
       <div className="svc-ai__panel panel">
-        <img className="panel__bg" src="/img/v4/services/ai-panel.png" alt="" />
+        <img className="panel__bg" src="/img/v4/services/ai-panel.png" alt="" aria-hidden="true" />
         <div className="svc-ai__shade" />
         <div className="svc-ai__inner">
           <div className="svc-ai__top">

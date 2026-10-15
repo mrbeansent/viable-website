@@ -17,7 +17,7 @@ export default function AuditHero() {
   return (
     <section className="audit-hero" data-qa="audit-hero">
       <div className="audit-panel panel">
-        <img className="panel__bg" src="/img/v4/audit/hero.png" alt="" />
+        <img className="panel__bg" src="/img/v4/audit/hero.png" alt="" aria-hidden="true" />
         <div className="audit-shade" />
         <GridLines />
         <div className="audit-hero__inner">
