@@ -1,38 +1,29 @@
-import SiteShell from '@/components/SiteShell'
-import Hero from '@/components/Hero'
-import InquiryLeaks from '@/components/InquiryLeaks'
-import ToolsCarousel from '@/components/ToolsCarousel'
-import TrackRecord from '@/components/TrackRecord'
-import WhatWeDo from '@/components/WhatWeDo'
-import Options from '@/components/Options'
-import HowItWorks from '@/components/HowItWorks'
-import PriceEffort from '@/components/PriceEffort'
-import FreeAudit from '@/components/FreeAudit'
-import WhoWeHelp from '@/components/WhoWeHelp'
-import IsThisYou from '@/components/IsThisYou'
-import People from '@/components/People'
-import FoundingOffer from '@/components/FoundingOffer'
-import Faq from '@/components/Faq'
-import FinalCta from '@/components/FinalCta'
+import SiteShell from '@/components/v4/shared/SiteShell'
+import Hero from '@/components/v4/home/Hero'
+import Results from '@/components/v4/home/Results'
+import ServicesOverview from '@/components/v4/home/ServicesOverview'
+import Spotlights from '@/components/v4/home/Spotlights'
+import Leaks from '@/components/v4/home/Leaks'
+import RecentWork from '@/components/v4/home/RecentWork'
+import Compare from '@/components/v4/home/Compare'
+import HowItWorks from '@/components/v4/home/HowItWorks'
+import Founding from '@/components/v4/home/Founding'
+import Faq from '@/components/v4/home/Faq'
+import '@/app/styles/v4-home.css'
 
 export default function Home() {
   return (
     <SiteShell>
       <Hero />
-      <InquiryLeaks />
-      <ToolsCarousel />
-      <TrackRecord />
-      <WhatWeDo />
-      <Options />
+      <Results />
+      <ServicesOverview />
+      <Spotlights />
+      <Leaks />
+      <RecentWork />
+      <Compare />
       <HowItWorks />
-      <PriceEffort />
-      <FreeAudit />
-      <WhoWeHelp />
-      <IsThisYou />
-      <People />
-      <FoundingOffer />
+      <Founding />
       <Faq />
-      <FinalCta />
     </SiteShell>
   )
 }

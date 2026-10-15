@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
-import { Arimo } from 'next/font/google'
+import { Manrope } from 'next/font/google'
 import RequestProvider from '@/components/request/RequestProvider'
 import './globals.css'
 
-const arimo = Arimo({
+const manrope = Manrope({
   subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-arimo',
+  weight: ['200', '300', '400', '500', '600'],
+  variable: '--font-manrope',
   display: 'swap',
 })
 
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={arimo.variable}>
+    <html lang="en" className={manrope.variable}>
       <body>
         <RequestProvider>{children}</RequestProvider>
       </body>

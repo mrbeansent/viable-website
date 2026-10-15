@@ -1,36 +1,32 @@
 import type { Metadata } from 'next'
-import SiteShell from '@/components/SiteShell'
-import PageHero from '@/components/PageHero'
-import OneTimeProjects from '@/components/services/OneTimeProjects'
-import MonthlyPlans from '@/components/services/MonthlyPlans'
-import OnRequest from '@/components/services/OnRequest'
-import Options from '@/components/Options'
-import HowItWorks from '@/components/HowItWorks'
-import PriceEffort from '@/components/PriceEffort'
-import FinalCta from '@/components/FinalCta'
+import SiteShell from '@/components/v4/shared/SiteShell'
+import ServicesHero from '@/components/v4/services/Hero'
+import ServicesMarquee from '@/components/v4/services/Marquee'
+import OneTime from '@/components/v4/services/OneTime'
+import Monthly from '@/components/v4/services/Monthly'
+import AiConsult from '@/components/v4/services/AiConsult'
+import Compare from '@/components/v4/services/Compare'
+import HowItWorks from '@/components/v4/services/HowItWorks'
+import Faq from '@/components/v4/services/Faq'
+import '../styles/v4-services.css'
 
 export const metadata: Metadata = {
-  title: 'Services — Viable Works',
+  title: 'Services & Pricing — Viable Works',
   description:
-    'One-time projects and monthly plans with clear scopes and starting prices. Request a free audit and we confirm the right size.',
+    'One-time projects and monthly plans with clear scopes and starting prices in pesos. Request a free audit and we confirm the right size.',
 }
 
 export default function ServicesPage() {
   return (
-    <SiteShell>
-      <PageHero eyebrow="Services" title="Pick a fix. We will tell you the right size.">
-        <p className="page-sub">
-          Clear scopes, plain language, and a person who answers. Prices start low because small jobs are real jobs. We
-          confirm the exact scope on a free 15-minute call.
-        </p>
-      </PageHero>
-      <OneTimeProjects />
-      <MonthlyPlans />
-      <OnRequest />
-      <Options />
+    <SiteShell navVariant="pill">
+      <ServicesHero />
+      <ServicesMarquee />
+      <OneTime />
+      <Monthly />
+      <AiConsult />
+      <Compare />
       <HowItWorks />
-      <PriceEffort />
-      <FinalCta />
+      <Faq />
     </SiteShell>
   )
 }
