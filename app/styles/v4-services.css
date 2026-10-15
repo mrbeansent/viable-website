@@ -180,3 +180,8 @@
   .svc-ai__side .btn { white-space: normal; }
 }
 @media (max-width: 480px) { .svc-steps { grid-template-columns: 1fr; } }
+
+/* Wide screens: centre panel content on the 1200px grid (equals the Figma 100px inset at 1440) */
+@media (min-width: 1441px) {
+  .svc-hero, .svc-ai__panel { padding-inline: calc((100% - 1240px) / 2); }
+}

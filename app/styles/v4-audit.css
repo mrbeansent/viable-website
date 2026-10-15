@@ -164,3 +164,6 @@
 @media (min-width: 1200px) {
   .audit-hero--thanks .audit-panel { min-height: 926px; }
 }
+
+/* Wide screens: keep the 1400px Figma frame centred inside the full-bleed panel (no change at 1440) */
+.audit-hero__inner { max-width: 1400px; margin-inline: auto; }

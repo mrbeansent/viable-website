@@ -400,3 +400,6 @@
   .home-spot__media { height: 430px; }
   .home-spot__stage { transform: scale(0.64); }
 }
+
+/* Wide screens: keep the 1400px Figma frame centred inside the full-bleed panel (no change at 1440) */
+.home-hero__inner { max-width: 1400px; margin-inline: auto; }

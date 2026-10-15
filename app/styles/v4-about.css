@@ -355,3 +355,12 @@
   .about-teams__d { max-width: none; }
   .about-portfolio h3 { font-size: 28px; }
 }
+
+/* Wide screens: keep the 1400px Figma frame centred inside the full-bleed panel (no change at 1440) */
+.about-hero__content { max-width: 1400px; margin-inline: auto; }
+@media (min-width: 1441px) {
+  .about-hero__mosaic { left: calc(50% - 84px); }
+  .about-float--a { left: calc(50% + 310px); }
+  .about-float--b { left: calc(50% + 240px); }
+  .about-float--c { left: calc(50% + 380px); }
+}
