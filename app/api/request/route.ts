@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { EMAIL_RE, clean, forwardLead, normaliseUrl } from '@/lib/leads'
+import { auditReceivedEmail } from '@/lib/emails/auditReceived'
 
 const fail = (error: string, status = 400, field?: string) =>
   NextResponse.json({ ok: false, error, ...(field ? { field } : {}) }, { status })
@@ -61,6 +62,8 @@ export async function POST(request: Request) {
       problem,
       heardAbout: clean(body.source, 120) || undefined,
       businessType: clean(body.businessType, 200) || undefined,
+    }, {
+      confirmation: { to: email, ...auditReceivedEmail({ name, business, website, problem }) },
     })
     return result.ok ? NextResponse.json(result) : fail(result.error, 502)
   }

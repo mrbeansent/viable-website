@@ -10,15 +10,15 @@ import HowItWorks from '@/components/v4/services/HowItWorks'
 import Faq from '@/components/v4/services/Faq'
 import JsonLd from '@/components/v4/shared/JsonLd'
 import { FAQS } from '@/components/v4/services/data'
-import { faqSchema, servicesSchema } from '@/lib/seo'
+import { faqSchema, servicesSchema, withSocial } from '@/lib/seo'
 import '../styles/v4-services.css'
 
-export const metadata: Metadata = {
-  title: 'Services & Pricing — Viable Works',
+export const metadata: Metadata = withSocial({
+  title: 'Web Design & Marketing Services and Pricing in Cebu | Viable Works',
   description:
     'One-time projects and monthly plans with clear scopes and starting prices in pesos. Request a free audit and we confirm the right size.',
   alternates: { canonical: '/services' },
-}
+})
 
 export default function ServicesPage() {
   return (

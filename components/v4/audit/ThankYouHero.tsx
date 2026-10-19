@@ -95,7 +95,7 @@ export default function ThankYouHero() {
                 ))}
                 <div className="audit-cal__times"><span>10:00 AM</span><span className="is-sel">1:30 PM</span><span>4:00 PM</span></div>
               </div>
-              <Link className="btn btn--primary" href="/book">Book my call <span className="btn__arrow">→</span></Link>
+              <Link className="btn btn--primary" href={`/book?${new URLSearchParams(Object.entries({ name: info.name, email: info.email, ref: 'audit' }).filter(([, v]) => v))}`}>Book my call <span className="btn__arrow">→</span></Link>
             </div>
             <p className="audit-wait">
               <span>While you wait:</span>
