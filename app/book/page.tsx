@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
+import { withSocial } from '@/lib/seo'
 import SiteShell from '@/components/v4/shared/SiteShell'
 import CalendarEmbed from '@/components/book/CalendarEmbed'
 import { QUIZ } from '@/components/links'
 import '@/app/styles/v4-book.css'
 
-export const metadata: Metadata = {
-  title: 'Book a free 15-minute call — Viable Works',
+export const metadata: Metadata = withSocial({
+  title: 'Book a Free 15-Minute Call | Viable Works',
   description:
     'We will look at where your inquiries get lost and tell you plainly what we would do first. No pitch deck, no pressure.',
   alternates: { canonical: '/book' },
-}
+})
 
 const STEPS = [
   'You pick a time that suits you',

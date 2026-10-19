@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
+import { withSocial } from '@/lib/seo'
 import LegalPage from '@/components/v4/legal/LegalPage'
 import { TERMS_SECTIONS } from '@/components/v4/legal/terms'
 
-export const metadata: Metadata = {
-  title: 'Terms and Conditions — Viable Works',
+export const metadata: Metadata = withSocial({
+  title: 'Terms and Conditions | Viable Works',
   description: 'The terms that apply to every quote, service agreement and monthly plan from Viable Works.',
   alternates: { canonical: '/terms' },
-}
+})
 
 export default function TermsPage() {
   return (

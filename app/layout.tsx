@@ -24,6 +24,8 @@ export const metadata: Metadata = {
   description,
   openGraph: { type: 'website', siteName: 'Viable Works', locale: 'en_PH', title, description },
   twitter: { card: 'summary_large_image', title, description },
+  // Google Search Console HTML-tag verification (optional if verified by DNS TXT record instead).
+  ...(process.env.NEXT_PUBLIC_GSC_VERIFICATION ? { verification: { google: process.env.NEXT_PUBLIC_GSC_VERIFICATION } } : {}),
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

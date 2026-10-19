@@ -70,3 +70,16 @@ export const faqSchema = (faqs: { q: string; a: string }[]) => ({
     acceptedAnswer: { '@type': 'Answer', text: a },
   })),
 })
+
+// Page metadata replaces the layout's openGraph/twitter objects wholesale, so without this every page
+// shared on Facebook/Messenger showed the homepage title and description. Pass title, description and canonical.
+type PageMeta = import('next').Metadata & { title: string; description: string; alternates: { canonical: string } }
+export function withSocial(meta: PageMeta): import('next').Metadata {
+  const { title, description } = meta
+  const url = meta.alternates.canonical
+  return {
+    ...meta,
+    openGraph: { type: 'website', siteName: 'Viable Works', locale: 'en_PH', url, title, description },
+    twitter: { card: 'summary_large_image', title, description },
+  }
+}

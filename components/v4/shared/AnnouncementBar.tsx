@@ -7,7 +7,7 @@ export default function AnnouncementBar() {
     <div className="announce" data-qa="announce">
       <div className="announce__inner">
         <span className="announce__dot" />
-        <span>Founding rates for our first five clients, open until Dec 31</span>
+        <span>Founding rates for our first five clients, open until Dec 31, 2026</span>
         <Link href={`${FREE_AUDIT}?ref=founding`} className="announce__cta">
           Claim a spot →
         </Link>

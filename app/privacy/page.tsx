@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
+import { withSocial } from '@/lib/seo'
 import LegalPage from '@/components/v4/legal/LegalPage'
 import { PRIVACY_SECTIONS } from '@/components/v4/legal/privacy'
 
-export const metadata: Metadata = {
-  title: 'Privacy Policy — Viable Works',
+export const metadata: Metadata = withSocial({
+  title: 'Privacy Policy | Viable Works',
   description: 'How Viable Works collects, uses and protects personal information, and how to use your rights under the Data Privacy Act of 2012.',
   alternates: { canonical: '/privacy' },
-}
+})
 
 export default function PrivacyPage() {
   return (
