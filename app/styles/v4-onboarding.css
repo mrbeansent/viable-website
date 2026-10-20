@@ -1,0 +1,37 @@
+/* /onboarding: light portal look from Belle's Onboarding Kit spec (mist background, dark band with logo, white card, violet button). */
+.onb { min-height: 100vh; display: flex; flex-direction: column; background: var(--mist); color: var(--ink); }
+
+.onb-band { position: relative; background: var(--void-navy); overflow: hidden; }
+.onb-band::after { content: ''; position: absolute; inset: auto 0 0; height: 3px; background: var(--grad-wordmark); }
+.onb-band__inner { max-width: 720px; margin-inline: auto; padding: 22px var(--gutter) 25px; }
+.onb-band__logo { display: block; height: 30px; width: auto; }
+
+.onb-main { flex: 1; width: 100%; max-width: 720px; margin-inline: auto; padding: 28px var(--gutter) 40px; }
+.onb-card { display: flex; flex-direction: column; gap: 16px; padding: 32px; border-radius: 20px; background: #fff; border: 1px solid var(--line-light); }
+.onb-card--short { gap: 12px; }
+.onb-eyebrow { font-size: var(--fs-label); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--violet-deep); }
+.onb-title { font-size: clamp(26px, 5vw, 34px); line-height: 1.15; font-weight: 400; letter-spacing: -0.03em; text-wrap: balance; }
+.onb-lead { font-size: var(--fs-body); line-height: 1.6; color: var(--muted-light); max-width: 60ch; }
+
+.onb-notes { list-style: none; display: flex; flex-direction: column; gap: 8px; padding: 14px 16px; border-radius: var(--r-card); background: var(--mist); font-size: var(--fs-body-s); line-height: 1.55; color: var(--ink); }
+.onb-notes li { position: relative; padding-left: 16px; }
+.onb-notes li::before { content: ''; position: absolute; left: 0; top: 0.6em; width: 6px; height: 6px; border-radius: 3px; background: var(--violet); }
+.onb-notes a, .onb-foot a { color: var(--violet-deep); text-decoration: underline; text-underline-offset: 2px; }
+
+.onb-form { margin-top: 4px; }
+.onb-form iframe { display: block; width: 100%; min-height: 480px; border: 0; }
+.onb-missing { padding: 16px; border-radius: var(--r-card); border: 1px dashed var(--line-light); font-size: var(--fs-body-s); color: var(--muted-light); }
+
+.onb-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; margin-top: 4px; }
+.onb-btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 22px; border-radius: var(--r-pill); background: var(--violet-deep); color: #fff; font-size: var(--fs-button); font-weight: 600; }
+.onb-btn:hover { background: var(--violet-mid); }
+.onb-btn:focus-visible, .onb a:focus-visible { outline: 2px solid var(--violet-mid); outline-offset: 3px; }
+.onb-small { font-size: var(--fs-body-s); color: var(--muted-light); }
+.onb-select { user-select: all; color: var(--ink); font-weight: 500; }
+
+.onb-foot { max-width: 720px; width: 100%; margin-inline: auto; padding: 0 var(--gutter) 32px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; font-size: 12px; color: var(--muted-light); }
+
+@media (max-width: 480px) {
+  .onb-card { padding: 22px 18px; border-radius: 16px; }
+  .onb-main { padding-top: 16px; }
+}
